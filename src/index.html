@@ -652,7 +652,7 @@
       <h3 class="rv">Je me suis donné un sparring partner qui a réellement lu la codebase.</h3>
 
       <p class="lab rv" style="--d:1">Approche</p>
-      <p class="rv" style="--d:1">Je clone le repo en local et j&rsquo;utilise Claude pour interroger directement la codebase. Pour la base de données et les logs, je passe par le serveur MCP que notre CTO a construit&nbsp;: <strong>ce n&rsquo;est pas moi qui l&rsquo;ai construit, mais je m&rsquo;en sers en permanence</strong>. L&rsquo;un comme l&rsquo;autre répondent sur ce que le produit fait <mark class="hl"><strong>aujourd&rsquo;hui</strong></mark>, pas sur ce que la documentation prétend, et je n&rsquo;ai plus besoin de deviner ni de mobiliser un développeur pour le savoir.</p>
+      <p class="rv" style="--d:1">Je clone le repo en local et j&rsquo;utilise <strong>Claude Code</strong>, l&rsquo;assistant IA avec lequel je travaille, pour interroger directement la codebase. Pour la base de données et les logs, je passe par le serveur MCP que notre CTO a construit&nbsp;: <strong>ce n&rsquo;est pas moi qui l&rsquo;ai construit, mais je m&rsquo;en sers en permanence</strong>. L&rsquo;un comme l&rsquo;autre répondent sur ce que le produit fait <mark class="hl"><strong>aujourd&rsquo;hui</strong></mark>, pas sur ce que la documentation prétend, et je n&rsquo;ai plus besoin de deviner ni de mobiliser un développeur pour le savoir.</p>
 
       <p class="rv" style="--d:2">Puis, au moment d&rsquo;élaborer la solution, j&rsquo;utilise un <strong>skill</strong> que j&rsquo;ai écrit pour me challenger&nbsp;: il m&rsquo;interroge plutôt que l&rsquo;inverse, pose ses questions par rounds, nomme les edge cases que je n&rsquo;ai pas mentionnés, et challenge le scope.</p>
 
@@ -759,7 +759,43 @@
 
     <div class="col">
       <p class="lab rv">Puis j&rsquo;ai écrit les règles</p>
-      <p class="rv">Un ensemble de <strong>skills</strong>, des instructions écrites que mon assistant IA suit, pour que le processus soit identique à chaque fois&nbsp;: où vit un prototype, ce qu&rsquo;il doit contenir, ce qu&rsquo;il ne doit jamais faire. Les écrire, c&rsquo;est l&rsquo;essentiel du travail, et c&rsquo;est du travail produit&nbsp;: <strong>décider à quoi ressemble un bon résultat avant que quoi que ce soit ne soit généré.</strong></p>
+      <p class="rv">Un ensemble de <strong>skills</strong>, des instructions écrites que Claude Code suit, pour que le processus soit identique à chaque fois&nbsp;: où vit un prototype, ce qu&rsquo;il doit contenir, ce qu&rsquo;il ne doit jamais faire. Les écrire, c&rsquo;est l&rsquo;essentiel du travail, et c&rsquo;est du travail produit&nbsp;: <strong>décider à quoi ressemble un bon résultat avant que quoi que ce soit ne soit généré.</strong></p>
+
+      <p class="rv">Par exemple, celui qui génère un prototype à partir d&rsquo;une capture&nbsp;:</p>
+
+      <div class="skill rv">
+        <div class="bar"><span class="dot"></span><span>proto-start-capture</span><span class="grow"></span><span>extrait</span></div>
+        <pre><span class="ln" style="--i:0"><span class="f"># proto-start-capture</span></span>
+<span class="ln" style="--i:1"><span>&nbsp;</span></span>
+<span class="ln" style="--i:2"><span class="d">  Génère un prototype HTML fidèle à partir d'une capture du vrai</span></span>
+<span class="ln" style="--i:3"><span class="d">  front, au lieu de reconstruire le HTML depuis zéro.</span></span>
+<span class="ln" style="--i:4"><span>&nbsp;</span></span>
+<span class="ln" style="--i:5"><span class="h">## Ce que l'utilisateur fournit</span></span>
+<span class="ln" style="--i:6"><span>  1. Naviguer soi-même jusqu'à la page réelle</span></span>
+<span class="ln" style="--i:7"><span>  2. Extension DesignCapture, export au format ZIP</span></span>
+<span class="ln" style="--i:8"><span>  3. Donner le chemin local du fichier téléchargé</span></span>
+<span class="ln" style="--i:9"><span>&nbsp;</span></span>
+<span class="ln" style="--i:10"><span>  Claude ne navigue jamais lui-même : tout part du fichier fourni.</span></span>
+<span class="ln" style="--i:11"><span>  Sans chemin, le skill s'arrête. Il ne devine jamais un chemin ni</span></span>
+<span class="ln" style="--i:12"><span>  ne suppose qu'un fichier existe.</span></span>
+<span class="ln" style="--i:13"><span>&nbsp;</span></span>
+<span class="ln" style="--i:14"><span class="h">## Le traitement de la capture</span></span>
+<span class="ln" style="--i:15"><span>  Le contenu capturé est redirigé tel quel vers sa destination</span></span>
+<span class="ln" style="--i:16"><span>  finale. Jamais réécrit : une réécriture reconstruit le fichier de</span></span>
+<span class="ln" style="--i:17"><span>  mémoire et introduit des dérives silencieuses (CSS réordonné,</span></span>
+<span class="ln" style="--i:18"><span>  attributs perdus), alors que la fidélité à la capture est toute</span></span>
+<span class="ln" style="--i:19"><span>  la raison d'être de cette commande.</span></span>
+<span class="ln" style="--i:20"><span>&nbsp;</span></span>
+<span class="ln" style="--i:21"><span class="h">## Le versionnage</span></span>
+<span class="ln" style="--i:22"><span>  Un proto commence toujours à v1. Si v1 existe déjà, le skill</span></span>
+<span class="ln" style="--i:23"><span>  s'arrête et renvoie vers /proto-iteration. Les versions</span></span>
+<span class="ln" style="--i:24"><span>  précédentes ne sont jamais écrasées.</span></span>
+<span class="ln" style="--i:25"><span>&nbsp;</span></span>
+<span class="ln" style="--i:26"><span class="h">## Ce qui est modifié</span></span>
+<span class="ln" style="--i:27"><span>  Uniquement les sections concernées par la feature,</span></span>
+<span class="ln" style="--i:28"><span>  chirurgicalement. Tout le reste de la page reste identique :</span></span>
+<span class="ln" style="--i:29"><span>  c'est l'intérêt de partir d'une capture.</span></span></pre>
+      </div>
 
       <p class="lab rv" style="--d:1">Impact</p>
       <p class="rv" style="--d:1">Le gain n&rsquo;est pas d&rsquo;abord la vitesse. C&rsquo;est <mark class="hl">jusqu&rsquo;où je peux désormais descendre dans le détail fonctionnel</mark>&nbsp;: états vides, erreurs, permissions, variantes pénibles. Les cas qui restaient dans ma tête, ou qui restaient inconnus, sont maintenant à l&rsquo;écran, là où l&rsquo;équipe peut les contester.</p>

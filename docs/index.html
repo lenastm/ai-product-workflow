@@ -1,0 +1,1018 @@
+<title>Shipped Like a Product</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Open+Sans:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+
+<style>
+  :root{
+    --ground:#fbfcfe;
+    --tint:#f1f6f9;
+    --surface:#ffffff;
+    --line:#dce4e9;
+    --line-soft:#e9eff3;
+    --ink:#14181b;
+    --ink-2:#414a4f;
+    --ink-3:#6f7d85;
+    --cyan:#0092bd;
+    --cyan-bright:#00b9ef;
+    --violet:#8f36e8;
+    --shadow:0 1px 2px rgba(20,24,27,.04),0 18px 44px -20px rgba(20,24,27,.16);
+    --hl:rgba(0,185,239,.26);
+    --hl2:rgba(159,69,250,.18);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#0c1215;
+      --tint:#141d22;
+      --surface:#121a1e;
+      --line:#26333a;
+      --line-soft:#1c272c;
+      --ink:#eaf2f6;
+      --ink-2:#a9b8bf;
+      --ink-3:#76858c;
+      --cyan:#4cd2fd;
+      --cyan-bright:#5ad5ff;
+      --violet:#bb86ff;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 20px 48px -22px rgba(0,0,0,.7);
+      --hl:rgba(90,213,255,.24);
+      --hl2:rgba(187,134,255,.22);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0c1215;
+    --tint:#141d22;
+    --surface:#121a1e;
+    --line:#26333a;
+    --line-soft:#1c272c;
+    --ink:#eaf2f6;
+    --ink-2:#a9b8bf;
+    --ink-3:#76858c;
+    --cyan:#4cd2fd;
+    --cyan-bright:#5ad5ff;
+    --violet:#bb86ff;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 20px 48px -22px rgba(0,0,0,.7);
+    --hl:rgba(90,213,255,.24);
+    --hl2:rgba(187,134,255,.22);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink-2);
+    font-family:"Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:17px;
+    line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- progress ---------- */
+  .progress{
+    position:fixed;
+    top:env(safe-area-inset-top, 0px);
+    left:0;right:0;
+    height:2px;
+    background:transparent;
+    z-index:50;
+  }
+  .progress i{
+    display:block;height:100%;width:0;
+    background:var(--cyan-bright);
+    transition:width .08s linear;
+  }
+
+  /* ---------- layout ---------- */
+  .wrap{
+    max-width:1140px;
+    margin:0 auto;
+    padding-inline:20px;
+    padding-block:0 0;
+  }
+  .col{max-width:700px;margin:0 auto}
+  .wide{max-width:1000px;margin-inline:auto}
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    padding-block:clamp(56px,10vw,120px) clamp(40px,6vw,72px);
+  }
+  .kicker{
+    font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    margin-bottom:26px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line);max-width:120px}
+  .question{
+    font-family:"Bricolage Grotesque","Open Sans",sans-serif;
+    font-weight:600;
+    font-size:clamp(25px,4.1vw,42px);
+    line-height:1.22;
+    letter-spacing:-.024em;
+    color:var(--ink);
+    margin:0;
+    text-wrap:balance;
+  }
+  .question .sub{
+    display:block;
+    margin-top:18px;
+    font-weight:500;
+    font-size:clamp(16px,2.1vw,21px);
+    line-height:1.45;
+    letter-spacing:-.008em;
+    color:var(--ink-3);
+    text-wrap:initial;
+  }
+  .byline{
+    margin-top:clamp(34px,5vw,56px);
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:16px 30px;
+    align-items:baseline;
+  }
+  .byline .who{font-size:17px;font-weight:600;color:var(--ink)}
+  .byline .who span{display:block;font-weight:400;color:var(--ink-3);font-size:15px;margin-top:3px}
+  .byline .meta{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  }
+
+  /* ---------- thesis ---------- */
+  .thesis{
+    padding-block:clamp(36px,5vw,58px);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--tint);
+  }
+  .thesis p{
+    font-family:"Bricolage Grotesque","Open Sans",sans-serif;
+    font-weight:600;
+    font-size:clamp(21px,3.1vw,31px);
+    line-height:1.28;
+    letter-spacing:-.02em;
+    color:var(--ink);
+    margin:0;
+    text-wrap:balance;
+  }
+  .thesis p .dim{color:var(--ink-3)}
+
+  /* ---------- index ---------- */
+  .index{padding-block:clamp(44px,6vw,76px)}
+  .idxrow{
+    display:grid;
+    grid-template-columns:44px 1fr 1fr;
+    gap:12px 28px;
+    align-items:baseline;
+    padding:16px 0;
+    border-top:1px solid var(--line-soft);
+    text-decoration:none;
+    color:inherit;
+    transition:border-color .25s ease;
+  }
+  .idxrow:last-of-type{border-bottom:1px solid var(--line-soft)}
+  .idxrow:hover{border-top-color:var(--cyan-bright)}
+  .idxrow:hover .t{color:var(--cyan)}
+  .idxrow:focus-visible{outline:2px solid var(--cyan-bright);outline-offset:4px}
+  .idxrow .n{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:12px;color:var(--ink-3);
+  }
+  .idxrow.hot .n{color:var(--violet)}
+  .idxrow .t{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:600;font-size:19px;color:var(--ink);
+    letter-spacing:-.012em;
+    transition:color .25s ease;
+  }
+  .idxrow.hot .t{color:var(--violet)}
+  .idxrow .d{font-size:15px;line-height:1.5;color:var(--ink-3)}
+  .idxnote{margin-top:26px;font-size:15px;color:var(--ink-3);line-height:1.6}
+  .idxnote b{color:var(--ink-2);font-weight:600}
+
+  /* ---------- sections ---------- */
+  section.part{padding-block:clamp(52px,7vw,96px);border-top:1px solid var(--line)}
+  .eyebrow{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--ink-3);
+    display:flex;align-items:center;gap:12px;
+    margin-bottom:20px;
+  }
+  .eyebrow .num{color:var(--violet)}
+  h2{
+    font-family:"Bricolage Grotesque","Open Sans",sans-serif;
+    font-weight:600;
+    font-size:clamp(24px,3.5vw,34px);
+    line-height:1.2;
+    letter-spacing:-.022em;
+    color:var(--ink);
+    margin:0 0 4px;
+    text-wrap:balance;
+  }
+  h3{
+    font-family:"Bricolage Grotesque","Open Sans",sans-serif;
+    font-weight:600;
+    font-size:21px;
+    line-height:1.3;
+    letter-spacing:-.014em;
+    color:var(--ink);
+    margin:44px 0 0;
+  }
+  p{margin:16px 0 0;max-width:68ch}
+  p strong{color:var(--ink);font-weight:600}
+  a{color:var(--cyan)}
+
+  .lab{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--cyan);
+    margin:34px 0 0;
+  }
+  .lab + p{margin-top:8px}
+
+  ul{margin:14px 0 0;padding-left:0;list-style:none;display:grid;gap:11px;max-width:68ch}
+  li{position:relative;padding-left:22px}
+  li::before{
+    content:"";position:absolute;left:2px;top:.72em;
+    width:6px;height:1px;background:var(--ink-3);
+  }
+  li strong{color:var(--ink);font-weight:600}
+
+  blockquote{
+    margin:30px 0 0;
+    padding:18px 0 18px 24px;
+    border-left:2px solid var(--violet);
+    max-width:64ch;
+  }
+  blockquote p{margin:0;font-size:18px;line-height:1.55;color:var(--ink);font-style:italic}
+  blockquote cite{
+    display:block;margin-top:10px;font-style:normal;
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+  }
+
+  /* ---------- stat ---------- */
+  .stat{
+    margin:40px 0 0;
+    display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stat .num{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:700;
+    font-size:clamp(54px,9vw,86px);
+    line-height:.86;
+    letter-spacing:-.045em;
+    color:var(--cyan);
+    font-variant-numeric:tabular-nums;
+  }
+  .stat .cap{font-size:16px;line-height:1.45;color:var(--ink-3);max-width:30ch}
+
+  /* ---------- figures ---------- */
+  figure{
+    margin:38px 0 0;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--surface);
+    box-shadow:var(--shadow);
+  }
+  figure img{display:block;width:100%;height:auto}
+  figcaption{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-3);
+    padding:12px 16px;
+    border-top:1px solid var(--line-soft);
+    background:var(--tint);
+  }
+  .figpair{
+    margin-top:38px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .figpair figure{margin:0}
+
+  /* ---------- three columns ---------- */
+  .tri{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+  }
+  .tri .c{border-top:2px solid var(--line);padding-top:16px}
+  .tri .c.accent{border-top-color:var(--violet)}
+  .tri h4{
+    margin:0 0 10px;
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-weight:500;font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .tri .c.accent h4{color:var(--violet)}
+  .tri p{margin:0;font-size:15px;line-height:1.6;max-width:none}
+
+  .note{
+    margin-top:38px;
+    padding:22px 24px;
+    background:var(--tint);
+    border:1px solid var(--line);
+    border-radius:10px;
+  }
+  .note p{margin:0;font-size:15.5px;line-height:1.62;max-width:none;color:var(--ink-3)}
+  .note p + p{margin-top:12px}
+  .note b{color:var(--ink-2);font-weight:600}
+
+  /* ---------- to write ---------- */
+  .todo{
+    margin-top:26px;
+    padding:26px;
+    border:1px dashed var(--line);
+    border-radius:10px;
+    background:var(--tint);
+  }
+  .todo p{margin:0;max-width:none;color:var(--ink-3);font-size:15.5px}
+  .todo p + p{margin-top:14px}
+  .todo ul{margin-top:14px}
+  .todo li{color:var(--ink-3);font-size:15px}
+
+  /* ---------- footer ---------- */
+  footer{
+    padding-block:clamp(44px,6vw,72px);
+    border-top:1px solid var(--line);
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-3);
+    display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;
+  }
+
+  /* ---------- motion ---------- */
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .load{animation:rise .7s cubic-bezier(.22,.68,.32,1) backwards;animation-delay:calc(var(--d,0) * 90ms)}
+
+  body.js .rv{opacity:0;transform:translateY(18px)}
+  body.js .rv.in{
+    opacity:1;transform:none;
+    transition:opacity .66s cubic-bezier(.22,.68,.32,1),transform .66s cubic-bezier(.22,.68,.32,1);
+    transition-delay:calc(var(--d,0) * 75ms);
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .load{animation:none}
+    body.js .rv{opacity:1;transform:none}
+    body.js .rv.in{transition:none}
+    .progress i{transition:none}
+    body.js .rv ul li{opacity:1;transform:none}
+    body.js .rv figure{transform:none}
+    figure:hover{transform:none !important}
+    body.js .rv .arrow span{opacity:1;transform:none}
+    body.js .rv .skill .ln{opacity:1;transform:none}
+    mark.hl{background-size:100% 42%}
+    .idxrow:hover{padding-left:0}
+    html{scroll-behavior:auto}
+  }
+  html{scroll-behavior:smooth}
+
+
+  /* ---------- playful motion ---------- */
+  mark.hl{
+    background-color:transparent;
+    color:inherit;
+    background-image:linear-gradient(var(--hl),var(--hl));
+    background-repeat:no-repeat;
+    background-position:0 85%;
+    background-size:0% 42%;
+    padding:0 3px;margin:0 -3px;
+    border-radius:2px;
+  }
+  mark.hl.v{background-image:linear-gradient(var(--hl2),var(--hl2))}
+  body.js .rv.in mark.hl{
+    background-size:100% 42%;
+    transition:background-size .75s cubic-bezier(.22,.68,.32,1) .3s;
+  }
+  body:not(.js) mark.hl{background-size:100% 42%}
+
+  /* list items arrive one by one */
+  body.js .rv ul li{opacity:0;transform:translateX(-7px)}
+  body.js .rv.in ul li{
+    opacity:1;transform:none;
+    transition:opacity .5s ease,transform .5s cubic-bezier(.22,.68,.32,1);
+  }
+  body.js .rv.in ul li:nth-child(1){transition-delay:.16s}
+  body.js .rv.in ul li:nth-child(2){transition-delay:.26s}
+  body.js .rv.in ul li:nth-child(3){transition-delay:.36s}
+  body.js .rv.in ul li:nth-child(4){transition-delay:.46s}
+  body.js .rv.in ul li:nth-child(5){transition-delay:.56s}
+  li::before{transition:width .4s ease .1s,background .3s ease}
+  .rv.in li:hover::before{width:14px;background:var(--cyan)}
+
+  /* the rule in a section label draws itself */
+  .eyebrow::after{content:"";height:1px;background:var(--line);width:0;flex:0 0 auto}
+  body.js .rv.in.eyebrow::after,body:not(.js) .eyebrow::after{width:clamp(40px,12vw,150px);transition:width .9s cubic-bezier(.22,.68,.32,1) .2s}
+
+  /* figures settle in, and lift when you point at them */
+  body.js .rv figure,body.js .rv.figpair figure{transform:translateY(18px) scale(.985)}
+  body.js .rv.in figure{
+    transform:none;
+    transition:transform .8s cubic-bezier(.22,.68,.32,1),box-shadow .5s ease;
+  }
+  figure{transition:transform .45s cubic-bezier(.22,.68,.32,1),box-shadow .45s ease}
+  figure:hover{transform:translateY(-4px) !important;box-shadow:0 2px 4px rgba(20,24,27,.05),0 26px 56px -22px rgba(20,24,27,.26)}
+
+  /* index rows grow an arrow */
+  .idxrow .t{position:relative;display:inline-block}
+  .idxrow .t::after{
+    content:"→";position:absolute;right:-26px;top:0;
+    opacity:0;transform:translateX(-6px);
+    transition:opacity .3s ease,transform .3s cubic-bezier(.22,.68,.32,1);
+    color:var(--cyan);
+  }
+  .idxrow:hover .t::after,.idxrow:focus-visible .t::after{opacity:1;transform:none}
+  .idxrow{transition:border-color .25s ease,padding-left .35s cubic-bezier(.22,.68,.32,1),background .25s ease}
+  .idxrow:hover{padding-left:10px}
+
+  /* ---------- before / after ---------- */
+  .ba{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:1fr 54px 1fr;
+    gap:0;
+    align-items:stretch;
+  }
+  .ba .side{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px 22px;
+    background:var(--surface);
+  }
+  .ba .side.was{background:var(--tint)}
+  .ba h5{
+    margin:0 0 10px;
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .ba .side.now h5{color:var(--cyan)}
+  .ba p{margin:0;font-size:15px;line-height:1.6;max-width:none}
+  .ba p + p{margin-top:10px}
+  .ba .arrow{
+    display:grid;place-items:center;
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:19px;color:var(--ink-3);
+  }
+  body.js .rv .arrow span{opacity:0;transform:translateX(-10px)}
+  body.js .rv.in .arrow span{
+    opacity:1;transform:none;
+    transition:opacity .5s ease .5s,transform .6s cubic-bezier(.22,.68,.32,1) .5s;
+  }
+
+  /* ---------- numbers strip ---------- */
+  .strip{
+    margin-top:40px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+    padding:26px 0;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .strip .f{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:700;font-size:clamp(34px,5.4vw,50px);line-height:.92;
+    letter-spacing:-.04em;color:var(--cyan);font-variant-numeric:tabular-nums;
+  }
+  .strip .l{margin-top:9px;font-size:14px;line-height:1.45;color:var(--ink-3)}
+
+
+
+  /* ---------- skill excerpt ---------- */
+  .skill{
+    margin-top:30px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--surface);
+    box-shadow:var(--shadow);
+  }
+  .skill .bar{
+    display:flex;align-items:center;gap:10px;
+    padding:11px 16px;
+    border-bottom:1px solid var(--line-soft);
+    background:var(--tint);
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);
+  }
+  .skill .bar .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan-bright);flex:0 0 auto}
+  .skill .bar .grow{flex:1}
+  .skill pre{
+    margin:0;padding:20px 22px;
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:12.5px;line-height:1.85;
+    color:var(--ink-2);
+    overflow-x:auto;
+    white-space:pre;
+  }
+  .skill .ln{display:block}
+  .skill .h{color:var(--violet)}
+  .skill .f{color:var(--cyan)}
+  .skill .d{color:var(--ink-3)}
+  body.js .rv .skill .ln{opacity:0;transform:translateY(5px)}
+  body.js .rv.in .skill .ln{
+    opacity:1;transform:none;
+    transition:opacity .34s ease,transform .34s cubic-bezier(.22,.68,.32,1);
+    transition-delay:calc(.2s + var(--i,0) * 32ms);
+  }
+
+  /* ---------- narrow ---------- */
+  @media (max-width:760px){
+    body{font-size:16px}
+    .idxrow{grid-template-columns:36px 1fr;gap:6px 16px}
+    .idxrow .d{grid-column:2}
+    .figpair{grid-template-columns:1fr;gap:16px}
+    .tri{grid-template-columns:1fr;gap:26px}
+    h3{margin-top:36px}
+    .note{padding:18px}
+    .todo{padding:20px}
+    blockquote{padding-left:18px}
+    .skill pre{font-size:11.5px;padding:16px}
+    .ba{grid-template-columns:1fr;gap:0}
+    .ba .arrow{padding:12px 0;transform:rotate(90deg)}
+    .strip{grid-template-columns:1fr;gap:22px}
+  }
+</style>
+
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="col">
+      <div class="kicker load" style="--d:0">Alan · Candidature Product Manager</div>
+      <h1 class="question load" style="--d:1">
+        In the last 3 months, what&rsquo;s the most impressive way you used AI to build a product?
+        <span class="sub">Please describe context, your approach (incl. tools / prompts / workflow if relevant), what you personally did vs delegated, the impact, and what you&rsquo;d do differently.</span>
+      </h1>
+      <div class="byline load" style="--d:2">
+        <div class="who">Léna Santamaria<span>Product Manager · Paxone, Wiremind</span></div>
+        <div class="meta">~8 min de lecture</div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div class="thesis">
+  <div class="wrap"><div class="col">
+    <p class="rv">Je n&rsquo;ai pas utilisé l&rsquo;IA pour écrire des specs plus vite.<br><span class="dim">J&rsquo;ai construit un produit pour mon équipe produit, et je l&rsquo;ai livré comme un produit.</span></p>
+  </div></div>
+</div>
+
+<div class="wrap">
+
+  <section class="part" id="context">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">00</span><span>Contexte</span></div>
+      <h2 class="rv" style="--d:1">Personne ne me donne de brief. Je vais chercher moi-même ce que le produit doit faire ensuite.</h2>
+
+      <p class="rv" style="--d:2"><strong>PAXONE est un produit B2B d&rsquo;inventaire et de réservation tout-en-un</strong>, que nous développons pour les opérateurs ferroviaires et routiers.</p>
+
+      <p class="rv" style="--d:3">Côté projet, un <strong>Product Expert</strong> est au contact quotidien de nos clients&nbsp;: implémentation, support, formation. L&rsquo;équipe a donc un lien permanent avec le terrain.</p>
+
+      <p class="lab rv" style="--d:4">Ce que j&rsquo;en fais</p>
+      <p class="rv" style="--d:4">Je vais chercher les besoins moi-même et je m&rsquo;appuie sur ce lien pour aller au contact des utilisateurs. Nous menons les interviews ensemble&nbsp;: il apporte le contexte du compte, j&rsquo;apporte ce que le produit peut absorber. <mark class="hl">Ce qui en ressort comme décision produit me revient.</mark></p>
+
+      <p class="lab rv" style="--d:5">Puis toute la chaîne</p>
+      <p class="rv" style="--d:5">Framing du besoin en solution, design et prototype de l&rsquo;interface, rédaction de la spec et découpage en user stories, roadmap et sprint planning, documentation de la release. De la première question client à la release note, je suis sur toute la chaîne.</p>
+    </div>
+  </section>
+
+  <section class="part index" id="map">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">··</span><span>Le plan</span></div>
+      <h2 class="rv" style="--d:1">Où l&rsquo;IA intervient dans mon cycle produit</h2>
+    </div>
+
+    <div class="col" style="margin-top:34px">
+      <a class="idxrow rv" style="--d:1" href="#need">
+        <span class="n">01</span><span class="t">Comprendre le besoin</span>
+        <span class="d">Lire à la main des centaines de pages d&rsquo;appels d&rsquo;offres</span>
+      </a>
+      <a class="idxrow hot rv" style="--d:2" href="#framing">
+        <span class="n">02</span><span class="t">Framing de la solution</span>
+        <span class="d">Deviner le comportement du système existant, et découvrir les edge cases trop tard</span>
+      </a>
+      <a class="idxrow hot rv" style="--d:3" href="#building">
+        <span class="n">03</span><span class="t">Construire la solution</span>
+        <span class="d">Des maquettes qui prenaient des jours et s&rsquo;éloignaient du produit réel</span>
+      </a>
+      <a class="idxrow rv" style="--d:4" href="#spec">
+        <span class="n">04</span><span class="t">Rédiger la spec</span>
+        <span class="d">Transformer une solution en user stories depuis une page blanche</span>
+      </a>
+      <a class="idxrow rv" style="--d:5" href="#doc">
+        <span class="n">05</span><span class="t">Documenter</span>
+        <span class="d">Écrire doc utilisateur et release notes de zéro, deux fois, en deux langues</span>
+      </a>
+      <p class="idxnote rv" style="--d:6">La colonne de droite, c&rsquo;est ce que chaque étape me coûtait. <b>Les étapes 02 et 03 occupent l&rsquo;essentiel de cette réponse.</b></p>
+    </div>
+  </section>
+
+  <section class="part" id="need">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">01</span><span>Comprendre le besoin</span></div>
+      <h2 class="rv" style="--d:1">J&rsquo;ai arrêté de lire les appels d&rsquo;offres. Je les interroge.</h2>
+
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">Les besoins clients nous arrivent sous deux formes inexploitables&nbsp;: des appels d&rsquo;offres qui font des centaines de pages d&rsquo;exigences, et les interviews utilisateurs que le Product Expert et moi menons ensemble, où le vrai besoin est noyé dans une heure de conversation. Les deux demandent des jours à traiter, et les deux finissent survolés faute de temps.</p>
+
+      <p class="lab rv" style="--d:3">Approche</p>
+      <p class="rv" style="--d:3">J&rsquo;interroge directement le corpus d&rsquo;appels d&rsquo;offres au lieu de le lire linéairement, et je fais synthétiser nos conversations d&rsquo;interview pour en extraire le besoin derrière la demande. Ce que j&rsquo;en tire n&rsquo;est pas un résumé à archiver. C&rsquo;est une matière de travail&nbsp;: un besoin formulé, avec ses zones d&rsquo;ombre, que je peux challenger et confronter au produit.</p>
+
+      <p class="lab rv" style="--d:4">Impact</p>
+      <p class="rv" style="--d:4">Nous arrivons au framing en sachant déjà ce que les clients ont demandé, à quelle fréquence, et avec quels mots. <strong>Le travail passe de l&rsquo;extraction à l&rsquo;interprétation</strong>, la seule partie que nous sommes seuls à pouvoir faire.</p>
+    </div>
+  </section>
+
+  <section class="part" id="framing">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">02</span><span>Framing de la solution</span></div>
+      <h2 class="rv" style="--d:1">Les edge cases qui m&rsquo;échappent sont ceux dont j&rsquo;ignore l&rsquo;existence.</h2>
+
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">Cadrer une feature sur un système mature, c&rsquo;est prédire comment elle va entrer en collision avec tout ce qui existe déjà. Deux choses tournaient mal, silencieusement&nbsp;:</p>
+      <ul class="rv" style="--d:3">
+        <li><strong>Nous oubliions des edge cases.</strong> Pas ceux qu&rsquo;on peut lister en atelier, mais ceux qui n&rsquo;apparaissent que si l&rsquo;on sait comment le système se comporte vraiment aujourd&rsquo;hui.</li>
+        <li><strong>Je devinais le comportement existant.</strong> Pour savoir ce qu&rsquo;une feature allait casser, il fallait demander à un développeur, attendre, et l&rsquo;interrompre.</li>
+      </ul>
+      <p class="rv" style="--d:4">Le problème n&rsquo;est pas le délai. C&rsquo;est la qualité du produit et le temps&nbsp;: <strong>un edge case oublié ressort, au mieux, en développement</strong>, au moment où ajouter du travail n&rsquo;est pas toujours possible.</p>
+
+      <h3 class="rv">Je me suis donné un sparring partner qui a réellement lu la codebase.</h3>
+
+      <p class="lab rv" style="--d:1">Approche</p>
+      <p class="rv" style="--d:1">Je clone le repo en local et j&rsquo;utilise Claude pour interroger directement la codebase. Pour la base de données et les logs, je passe par le serveur MCP que notre CTO a construit&nbsp;: <strong>ce n&rsquo;est pas moi qui l&rsquo;ai construit, mais je m&rsquo;en sers en permanence</strong>. L&rsquo;un comme l&rsquo;autre répondent sur ce que le produit fait <mark class="hl"><strong>aujourd&rsquo;hui</strong></mark>, pas sur ce que la documentation prétend, et je n&rsquo;ai plus besoin de deviner ni de mobiliser un développeur pour le savoir.</p>
+
+      <p class="rv" style="--d:2">Puis, au moment d&rsquo;élaborer la solution, j&rsquo;utilise un <strong>skill</strong> que j&rsquo;ai écrit pour me challenger&nbsp;: il m&rsquo;interroge plutôt que l&rsquo;inverse, pose ses questions par rounds, nomme les edge cases que je n&rsquo;ai pas mentionnés, et challenge le scope.</p>
+
+      <p class="lab rv">Le skill lui-même</p>
+      <p class="rv">Je l&rsquo;ai écrit comme un document, pas comme un prompt&nbsp;: un rôle, un comportement attendu, un déroulé, et ce qu&rsquo;il doit refuser de faire. Le vocabulaire est celui de notre produit&nbsp;; ce qui compte ici, c&rsquo;est la structure.</p>
+
+      <div class="skill rv">
+        <div class="bar"><span class="dot"></span><span>feature-planner</span><span class="grow"></span><span>extrait</span></div>
+        <pre><span class="ln" style="--i:0"><span class="f"># feature-planner</span></span>
+<span class="ln" style="--i:1"><span>&nbsp;</span></span>
+<span class="ln" style="--i:2"><span class="d">  Cadrer un besoin produit PAXONE en posant les bonnes questions</span></span>
+<span class="ln" style="--i:3"><span class="d">  avant de rédiger une Spec ou un prototype.</span></span>
+<span class="ln" style="--i:4"><span>&nbsp;</span></span>
+<span class="ln" style="--i:5"><span class="h">## Rôle</span></span>
+<span class="ln" style="--i:6"><span>  Sparring partner PM : explorer et structurer un besoin avant qu'il</span></span>
+<span class="ln" style="--i:7"><span>  devienne une Spec (PAX-XXX) ou un Projet. Ne pas rédiger de spec :</span></span>
+<span class="ln" style="--i:8"><span>  poser des questions, anticiper les angles morts, challenger la scope.</span></span>
+<span class="ln" style="--i:9"><span>&nbsp;</span></span>
+<span class="ln" style="--i:10"><span class="h">## Comportement</span></span>
+<span class="ln" style="--i:11"><span>  - En français, style direct</span></span>
+<span class="ln" style="--i:12"><span>  - Questions par rounds de 2-3, attendre les réponses</span></span>
+<span class="ln" style="--i:13"><span>  - Formuler des hypothèses, signaler les edge cases non mentionnés</span></span>
+<span class="ln" style="--i:14"><span>&nbsp;</span></span>
+<span class="ln" style="--i:15"><span class="h">## Déroulé</span></span>
+<span class="ln" style="--i:16"><span>  1. Problème     problème utilisateur concret, personas (chef de</span></span>
+<span class="ln" style="--i:17"><span>                  produit, agent supervision, gestionnaire</span></span>
+<span class="ln" style="--i:18"><span>                  d'incident, EF...), origine (GITE / terrain / OSDM)</span></span>
+<span class="ln" style="--i:19"><span>  2. Périmètre    interfaces (Inventaire / Portail Agent / OSDM API /</span></span>
+<span class="ln" style="--i:20"><span>                  Onboard), modules impactés, impact sur bookings /</span></span>
+<span class="ln" style="--i:21"><span>                  fulfillment / reacom, hors scope</span></span>
+<span class="ln" style="--i:22"><span>  3. Cas d'usage  nominal, alternatifs, edge cases (statuts</span></span>
+<span class="ln" style="--i:23"><span>                  PROCESSING / INCONSISTENT / ON-HOLD, permissions</span></span>
+<span class="ln" style="--i:24"><span>                  par rôle, volumes, collectif / multi-segment / A-R,</span></span>
+<span class="ln" style="--i:25"><span>                  perturbations)</span></span>
+<span class="ln" style="--i:26"><span>  4. Contraintes  OSDM, intégrations (RailCube / CAYZN / PSP),</span></span>
+<span class="ln" style="--i:27"><span>                  spécificités client, décisions ouvertes, risques</span></span>
+<span class="ln" style="--i:28"><span>&nbsp;</span></span>
+<span class="ln" style="--i:29"><span class="h">## Sortie</span></span>
+<span class="ln" style="--i:30"><span>  Un brief de cadrage structuré (problème, personas, interfaces /</span></span>
+<span class="ln" style="--i:31"><span>  modules, cas d'usage, edge cases, risques, hors scope, décisions</span></span>
+<span class="ln" style="--i:32"><span>  ouvertes), puis proposer /ticket-redaction ou /proto-start.</span></span></pre>
+      </div>
+
+      <p class="lab rv" style="--d:3">Impact</p>
+      <p class="rv" style="--d:3">J&rsquo;arrive au framing avec le comportement réel du système sous les yeux, et j&rsquo;en ressors avec les edge cases nommés. Moins de surprises atteignent le développement, et j&rsquo;arrête de consommer l&rsquo;attention d&rsquo;un développeur pour des questions auxquelles je peux répondre seule.</p>
+    </div>
+
+  </section>
+
+  <section class="part" id="building">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">03</span><span>Construire la solution</span></div>
+      <h2 class="rv" style="--d:1">J&rsquo;étais la seule à produire l&rsquo;interface, et mes maquettes devenaient peu à peu fausses.</h2>
+
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">Mon équipe n&rsquo;a jamais eu de designer, donc je fais le design en plus du travail produit. <strong>J&rsquo;ai commencé sur Figma</strong>, et j&rsquo;intégrais les écrans directement dans les specs.</p>
+      <p class="rv" style="--d:3">Ce que je produisais, c&rsquo;étaient des <strong>écrans, pas des prototypes</strong>. Chaque itération était assez lente pour que je dessine le cas nominal et m&rsquo;arrête là, et la bibliothèque de composants n&rsquo;était jamais tout à fait à jour.</p>
+      <ul class="rv" style="--d:4">
+        <li>Itérer prenait assez de temps pour que je dépasse rarement le happy path</li>
+        <li>Je montrais une image, pas un comportement&nbsp;: pas d&rsquo;état vide, pas d&rsquo;erreur, pas de variante</li>
+        <li>Donc le détail fonctionnel restait inexploré jusqu&rsquo;à ce que quelqu&rsquo;un le heurte en développement</li>
+      </ul>
+      <p class="rv" style="--d:5">C&rsquo;est ça qui coûtait vraiment. <mark class="hl v">Un écran qui ne montre que le cas nominal cache exactement l&rsquo;endroit où le produit est difficile.</mark> On le relit, on le valide, et les questions qu&rsquo;il n&rsquo;a jamais soulevées reviennent plus tard, quand y répondre coûte cher.</p>
+
+      <h3 class="rv">J&rsquo;ai arrêté de redessiner le produit. Je le capture, et je ne change que ce que la feature change.</h3>
+
+      <p class="lab rv" style="--d:1">Approche</p>
+      <p class="rv" style="--d:1">Un outil interne, construit par une autre équipe chez Wiremind, exporte n&rsquo;importe quel écran réel en HTML. Mon prototype part du produit tel qu&rsquo;il est, et je n&rsquo;édite que la partie que la feature touche. <mark class="hl">Je ne maintiens plus un design system en parallèle.</mark></p>
+
+      <div class="ba rv">
+        <div class="side was">
+          <h5>Avant&nbsp;: Figma</h5>
+          <p>Des écrans statiques, faits manuellement.</p>
+          <p>Très longs à produire.</p>
+        </div>
+        <div class="arrow" aria-hidden="true"><span>&rarr;</span></div>
+        <div class="side now">
+          <h5>Maintenant&nbsp;: la capture</h5>
+          <p>Des prototypes interactifs, sur la base des composants actuels du produit.</p>
+          <p>Des itérations bien plus efficaces, pour designer chaque état et chaque cas. Donc plus de qualité dans la spécification.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wide">
+      <div class="figpair">
+        <figure class="rv">
+          <img src="assets/img/capture-extension.png" alt="L&rsquo;extension de capture interne, proposant d&rsquo;exporter la page courante ou un composant isolé en HTML.">
+          <figcaption>Capturer un écran réel</figcaption>
+        </figure>
+        <figure class="rv" style="--d:1">
+          <img src="assets/img/capture-library.png" alt="La bibliothèque de l&rsquo;outil de capture, listant les pages produit capturées dont on peut partir.">
+          <figcaption>Les captures dont je pars</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="wide">
+      <figure class="rv">
+        <img src="assets/img/product-screen.png" alt="Un écran réel de PAXONE ouvert dans l&rsquo;éditeur de l&rsquo;outil de capture, prêt à servir de base à un prototype.">
+        <figcaption>Un écran produit capturé, prêt à être édité</figcaption>
+      </figure>
+    </div>
+
+    <div class="col">
+      <p class="lab rv">Puis j&rsquo;ai écrit les règles</p>
+      <p class="rv">Un ensemble de <strong>skills</strong>, des instructions écrites que mon assistant IA suit, pour que le processus soit identique à chaque fois&nbsp;: où vit un prototype, ce qu&rsquo;il doit contenir, ce qu&rsquo;il ne doit jamais faire. Les écrire, c&rsquo;est l&rsquo;essentiel du travail, et c&rsquo;est du travail produit&nbsp;: <strong>décider à quoi ressemble un bon résultat avant que quoi que ce soit ne soit généré.</strong></p>
+
+      <p class="lab rv" style="--d:1">Impact</p>
+      <p class="rv" style="--d:1">Le gain n&rsquo;est pas d&rsquo;abord la vitesse. C&rsquo;est <mark class="hl">jusqu&rsquo;où je peux désormais descendre dans le détail fonctionnel</mark>&nbsp;: états vides, erreurs, permissions, variantes pénibles. Les cas qui restaient dans ma tête, ou qui restaient inconnus, sont maintenant à l&rsquo;écran, là où l&rsquo;équipe peut les contester.</p>
+    </div>
+
+    <div class="wide">
+      <div class="figpair">
+        <figure class="rv">
+          <img src="assets/img/hub-skills.png" alt="La page des skills du Design Hub, listant les skills partagés groupées par Discovery, Design et Delivery.">
+          <figcaption>Les skills, partagés avec l&rsquo;équipe</figcaption>
+        </figure>
+        <figure class="rv" style="--d:1">
+          <img src="assets/img/hub-overview.png" alt="La page d&rsquo;accueil du Design Hub, avec le nombre de prototypes, de skills, de templates, de documents et de contributeurs, et l&rsquo;activité récente.">
+          <figcaption>Le hub, généré depuis le repo</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="col">
+      <h3 class="rv">Un prototype ne vaut pas grand-chose s&rsquo;il ne se souvient pas de pourquoi il existe.</h3>
+
+      <p class="lab rv" style="--d:1">Contexte</p>
+      <p class="rv" style="--d:1">La vitesse seule m&rsquo;aurait juste rendue plus rapide à produire des fichiers jetables. Ce qui en a fait quelque chose que mon équipe utilise, c&rsquo;est que chaque prototype porte son propre raisonnement et son propre historique.</p>
+
+      <p class="lab rv" style="--d:2">Approche</p>
+      <ul class="rv" style="--d:2">
+        <li><strong>Son problème, son objectif et ses décisions</strong>, pour qu&rsquo;un relecteur sache ce qu&rsquo;il regarde et ce qui a été délibérément exclu</li>
+        <li><strong>Chaque version, jamais écrasée.</strong> Un écran en a neuf&nbsp;; quand quelqu&rsquo;un demande trois semaines plus tard pourquoi on a abandonné une piste, cette version est toujours là</li>
+        <li><strong>Un lien partageable</strong>, pour que les développeurs, la QA et le management l&rsquo;ouvrent sans rien installer</li>
+        <li>Et rien n&rsquo;arrive sur la branche principale sans une merge request relue, <strong>y compris mon propre travail</strong></li>
+      </ul>
+
+      <blockquote class="rv" style="--d:3">
+        <p>«&nbsp;L&rsquo;explicabilité microscopique des décisions de l&rsquo;algorithme est hors périmètre de ce prototype&nbsp;: elle est traitée dans la carte d&rsquo;occupation des sièges.&nbsp;»</p>
+        <cite>Extrait de l&rsquo;objectif d&rsquo;un prototype. Du contrôle de scope qui voyage avec le fichier</cite>
+      </blockquote>
+    </div>
+
+    <div class="wide">
+      <div class="figpair">
+        <figure class="rv">
+          <img src="assets/img/hub-proto-summary.png" alt="Un prototype dans le hub, avec son énoncé de problème, son objectif et sa section wording.">
+          <figcaption>Chaque prototype porte son raisonnement</figcaption>
+        </figure>
+        <figure class="rv" style="--d:1">
+          <img src="assets/img/hub-proto-versions.png" alt="Un prototype ouvert dans le hub, avec une barre de versions allant de v1 à v9, la neuvième sélectionnée.">
+          <figcaption>Neuf versions, aucune écrasée</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="col">
+      <p class="lab rv">Impact</p>
+      <p class="rv">Les questions produit se tranchent en regardant quelque chose plutôt qu&rsquo;en le décrivant. Les développeurs reçoivent l&rsquo;intention sous forme d&rsquo;artefact, avec son raisonnement attaché, plutôt qu&rsquo;un lien et une conversation.</p>
+      <p class="rv" style="--d:1">Et je ne suis plus le point de défaillance unique de la production d&rsquo;interface. <strong>Une collègue a repris les skills, les a étendus, et livre maintenant ses propres prototypes.</strong> <mark class="hl v">C&rsquo;est la seule preuve d&rsquo;adoption à laquelle je fais vraiment confiance.</mark></p>
+
+      <div class="strip rv">
+        <div><div class="f" data-count="10">10</div><div class="l">skills partagés en usage</div></div>
+        <div><div class="f" data-count="27">27</div><div class="l">itérations de prototypes versionnées</div></div>
+        <div><div class="f" data-count="0">0</div><div class="l">push direct sur la branche principale</div></div>
+      </div>
+    </div>
+
+    <div class="wide">
+      <figure class="rv">
+        <img src="assets/img/hub-prototypes.png" alt="La page des prototypes du Design Hub, listant les prototypes récents avec leur module, leur version et leur auteur.">
+        <figcaption>Consultable par les développeurs, la QA et le management</figcaption>
+      </figure>
+    </div>
+
+    <div class="col">
+      <h3 class="rv">Un écran porte 120 morceaux de copy. Ils voyageaient en captures d&rsquo;écran.</h3>
+
+      <div class="stat rv" style="--d:1">
+        <div class="num" data-count="120">120</div>
+        <div class="cap">morceaux de copy sur un seul écran, en deux langues</div>
+      </div>
+
+      <p class="lab rv" style="--d:1">Contexte</p>
+      <p class="rv" style="--d:1">La copy d&rsquo;interface est l&rsquo;artefact le plus systématiquement perdu du travail produit. Elle vit dans des annotations de maquette, des commentaires de relecture et des messages de chat, puis elle est retapée à la main, en deux langues, par quelqu&rsquo;un qui n&rsquo;était pas dans la conversation.</p>
+
+      <p class="lab rv" style="--d:2">Approche</p>
+      <p class="rv" style="--d:2">J&rsquo;ai fait générer au prototype un tableau d&rsquo;édition bilingue&nbsp;: chaque morceau de copy qu&rsquo;il contient, français et anglais côte à côte, éditable sur place, avec une clé stable par ligne et un export JSON. <mark class="hl"><strong>Un objet, trois usages.</strong></mark> Je réécris la copy, le prototype est mis à jour depuis ce tableau, et la spec embarque l&rsquo;export pour que les développeurs implémentent le wording final dans les deux langues.</p>
+
+      <p class="lab rv" style="--d:3">Sa limite, honnêtement</p>
+      <p class="rv" style="--d:3">Les clés pointent vers le prototype, pas vers notre codebase de production. Les développeurs transposent toujours le texte eux-mêmes. Ce que ça supprime, c&rsquo;est toute ambiguïté sur <strong>ce que le texte doit dire</strong>, pas la saisie.</p>
+    </div>
+
+    <div class="wide">
+      <figure class="rv">
+        <img src="assets/img/wording-table.png" alt="Un tableau bilingue listant chaque morceau de copy d&rsquo;un prototype, français et anglais côte à côte, chacun avec une clé stable, et un export JSON.">
+        <figcaption>120 morceaux de copy, deux langues, une seule source</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="part" id="spec">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">04</span><span>Rédiger la spec</span></div>
+      <h2 class="rv" style="--d:1">Je ne demande pas une spec. Je demande à être interrogée jusqu&rsquo;à ce qu&rsquo;elle existe.</h2>
+
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">Ça se passe en phase de défrichage, avec le tech owner de la spec. On fait des allers-retours pour entrer dans le détail ensemble&nbsp;: ce que la solution implique vraiment, où elle touche le système existant, ce qui reste à décider.</p>
+      <p class="rv" style="--d:3">Le plus long n&rsquo;est pas de s&rsquo;accorder sur la solution. <mark class="hl">C&rsquo;est d&rsquo;écrire les user stories dans le détail.</mark></p>
+
+      <p class="lab rv" style="--d:4">Approche</p>
+      <p class="rv" style="--d:4">Une fois qu&rsquo;un prototype est figé, une IA peut écrire ces user stories détaillées à partir de lui, et elle le fait plus vite que moi. Chaque story sert ensuite dans les tickets.</p>
+
+      <p class="lab rv" style="--d:5">Impact</p>
+      <p class="rv" style="--d:5">J&rsquo;arrive au sprint planning avec un backlog découpé, les critères d&rsquo;acceptation déjà écrits, et une courte liste de décisions ouvertes qui me reviennent vraiment.</p>
+      <p class="rv" style="--d:6">À partir de là, le tech owner crée les tickets et organise le sprint planning avec l&rsquo;équipe.</p>
+    </div>
+  </section>
+
+  <section class="part" id="doc">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">05</span><span>Documenter</span></div>
+      <h2 class="rv" style="--d:1">Le travail que personne ne budgète, fait dans le temps qu&rsquo;il mérite.</h2>
+
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">La documentation utilisateur, les release notes et la traduction sont de vraies obligations qui arrivent quand le sprint est déjà fini. C&rsquo;est la première chose qu&rsquo;on coupe, et la coupe est invisible jusqu&rsquo;au jour où un client ne trouve pas comment quelque chose fonctionne.</p>
+
+      <p class="lab rv" style="--d:3">Approche</p>
+      <p class="rv" style="--d:3">Documentation utilisateur rédigée à partir de la spec qui existe déjà, release notes rédigées à partir des tickets livrés, et traduction entre français et anglais. <strong>Je relis et corrige tout&nbsp;: le brouillon n&rsquo;est jamais le livrable.</strong></p>
+
+      <p class="lab rv" style="--d:4">Impact</p>
+      <p class="rv" style="--d:4">Cette partie n&rsquo;est plus négociable face au reste du sprint. Elle est faite, à temps, et je passe mon attention à la vérifier plutôt qu&rsquo;à la produire.</p>
+    </div>
+  </section>
+
+  <section class="part" id="split">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">··</span><span>Ce que j&rsquo;ai fait vs ce que j&rsquo;ai délégué</span></div>
+      <h2 class="rv" style="--d:1">Le vrai partage n&rsquo;est pas moi contre la machine. C&rsquo;est <mark class="hl">ce que je fais à chaque fois</mark> contre <mark class="hl v">ce que j&rsquo;ai décidé une fois</mark> et à quoi je ne repense plus.</h2>
+    </div>
+
+    <div class="wide">
+      <div class="tri">
+        <div class="c rv">
+          <h4>À moi, non délégable</h4>
+          <p>Tout jugement produit&nbsp;: ce qui est dans le scope, ce qui en est délibérément exclu, quel edge case compte, ce qu&rsquo;un écran doit changer. Écrire les énoncés de problème. <strong>Relire et approuver chaque merge request, y compris celle d&rsquo;une collègue.</strong></p>
+        </div>
+        <div class="c rv" style="--d:1">
+          <h4>Délégué, à chaque fois</h4>
+          <p>Produire et éditer les prototypes. Générer le tableau de copy bilingue. Rédiger documentation, release notes et traductions. Interroger la codebase et le corpus d&rsquo;appels d&rsquo;offres.</p>
+        </div>
+        <div class="c accent rv" style="--d:2">
+          <h4>Encodé une fois</h4>
+          <p>Où vit un prototype et comment il se nomme. Qu&rsquo;une version n&rsquo;est jamais écrasée. Que rien n&rsquo;arrive sur la branche principale sans relecture. Qu&rsquo;un écran capturé n&rsquo;est jamais réécrit de mémoire. <strong>Ce ne sont pas des automatisations. Ce sont des décisions produit prises une fois pour que personne n&rsquo;ait à les reprendre.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="note rv">
+        <p><b>Ce que je n&rsquo;ai pas inventé, et qu&rsquo;il faut dire clairement.</b></p>
+        <p>Le serveur MCP qui me permet d&rsquo;interroger la codebase, la base de données et les logs a été construit par notre CTO. L&rsquo;outil de capture a été construit par une autre équipe chez Wiremind. Une partie du skill de prototypage a été reprise d&rsquo;un pattern déjà établi par une équipe produit voisine. J&rsquo;ai écrit les skills pour le repo de mon équipe&nbsp;; une collègue les a étendues.</p>
+        <p>Ma contribution a été de voir que ces pièces pouvaient former un système, et de construire ce qui manquait&nbsp;: <b>la mémoire, le versioning et la circulation.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="differently">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">··</span><span>Ce que je ferais différemment</span></div>
+      <h2 class="rv" style="--d:1">Ce que je ferais différemment</h2>
+      <div class="todo rv" style="--d:2">
+        <p><b>À rédiger.</b> C&rsquo;est la section qui pèse le plus lourd pour un lecteur senior&nbsp;: c&rsquo;est là qu&rsquo;il vérifie si tu as du recul. Pistes&nbsp;:</p>
+        <ul>
+          <li>Qu&rsquo;est-ce que tu as construit trop tôt, ou sur-conçu&nbsp;?</li>
+          <li>Un prototype trop fini a-t-il déjà laissé croire qu&rsquo;une décision était tranchée&nbsp;?</li>
+          <li>Pourquoi deux prototypes sont restés en v1 sans jamais être itérés&nbsp;?</li>
+          <li>Aurais-tu dû embarquer les devs plus tôt&nbsp;?</li>
+          <li>Qu&rsquo;est-ce qui ne s&rsquo;est pas diffusé au reste de l&rsquo;équipe, et pourquoi&nbsp;?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="close">
+    <div class="col">
+      <div class="eyebrow rv"><span class="num">··</span><span>Pour finir</span></div>
+      <h2 class="rv" style="--d:1">Conclusion</h2>
+      <div class="todo rv" style="--d:2">
+        <p><b>À rédiger après la section précédente.</b> Probablement&nbsp;: un récapitulatif consolidé de l&rsquo;impact, puis ce que cette façon de travailler transfère à une autre équipe produit, la partie qui parle directement à Alan.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Léna Santamaria · Paxone, Wiremind</span>
+    <span>Réponse écrite · Alan</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  document.body.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar = document.getElementById('bar');
+
+  function progress(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  progress();
+  window.addEventListener('scroll', progress, {passive:true});
+  window.addEventListener('resize', progress);
+
+  var items = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+
+  function countUp(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if (isNaN(target)) return;
+    if (target === 0){ el.textContent = '0'; return; }
+    if (reduce){ el.textContent = target; return; }
+    var t0 = performance.now(), dur = 1100;
+    function step(now){
+      var t = Math.min(1, (now - t0) / dur);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  if (!('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('[data-count]').forEach(countUp);
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+      var n = e.target.querySelector('[data-count]');
+      if (n) setTimeout(function(){ countUp(n); }, reduce ? 0 : 260);
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.08});
+
+  items.forEach(function(el){
+    // anything already on screen at load shows immediately: the page is never blank at rest
+    var r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight * 0.96){
+      el.classList.add('in');
+      var n = el.querySelector('[data-count]');
+      if (n) countUp(n);
+    } else {
+      io.observe(el);
+    }
+  });
+})();
+</script>

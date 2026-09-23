@@ -234,6 +234,7 @@
     margin:34px 0 0;
   }
   .lab + p{margin-top:8px}
+  code{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.86em;background:var(--tint);border:1px solid var(--line-soft);border-radius:4px;padding:1px 5px}
 
   ul{margin:14px 0 0;padding-left:0;list-style:none;display:grid;gap:11px;max-width:68ch}
   li{position:relative;padding-left:22px}
@@ -527,6 +528,16 @@
     transition-delay:calc(.2s + var(--i,0) * 32ms);
   }
 
+
+  /* ---------- étapes ---------- */
+  .stepnum{
+    font-family:"JetBrains Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--violet);
+    margin-top:54px;
+  }
+  .stepnum + h3{margin-top:6px}
+
   /* ---------- narrow ---------- */
   @media (max-width:760px){
     body{font-size:16px}
@@ -539,6 +550,7 @@
     .todo{padding:20px}
     blockquote{padding-left:18px}
     .skill pre{font-size:11.5px;padding:16px}
+    .stepnum{margin-top:38px}
     .ba{grid-template-columns:1fr;gap:0}
     .ba .arrow{padding:12px 0;transform:rotate(90deg)}
     .strip{grid-template-columns:1fr;gap:22px}
@@ -737,6 +749,31 @@
       </div>
     </div>
 
+    <div class="col">
+      <p class="lab rv">Le Design Hub</p>
+      <p class="rv">J&rsquo;ai construit un <strong>Design Hub</strong> interne&nbsp;: un espace partagé où sont stockés tous les prototypes produits avec Claude, avec leur contexte et leur historique. Il se régénère depuis le repo à chaque publication, et se consulte sans rien installer.</p>
+      <p class="rv" style="--d:1">Y déposer un prototype suit toujours les mêmes quatre étapes.</p>
+    </div>
+
+    <div class="wide">
+      <div class="figpair">
+        <figure class="rv">
+          <img src="assets/img/hub-overview.png" alt="La page d&rsquo;accueil du Design Hub, avec le nombre de prototypes, de skills, de templates, de documents et de contributeurs, et l&rsquo;activité récente.">
+          <figcaption>Le hub, généré depuis le repo</figcaption>
+        </figure>
+        <figure class="rv" style="--d:1">
+          <img src="assets/img/hub-skills.png" alt="La page des skills du Design Hub, listant les skills partagés groupés par Discovery, Design et Delivery.">
+          <figcaption>Les skills, partagés avec l&rsquo;équipe</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="stepnum rv">Étape 1</div>
+      <h3 class="rv">La capture</h3>
+      <p class="rv">L&rsquo;extension DesignCapture exporte l&rsquo;écran réel en HTML, avec ses polices, ses icônes et ses images. C&rsquo;est le point de départ&nbsp;: je ne redessine rien.</p>
+    </div>
+
     <div class="wide">
       <div class="figpair">
         <figure class="rv">
@@ -758,10 +795,9 @@
     </div>
 
     <div class="col">
-      <p class="lab rv">Puis j&rsquo;ai écrit les règles</p>
-      <p class="rv">Un ensemble de <strong>skills</strong>, des instructions écrites que Claude Code suit, pour que le processus soit identique à chaque fois&nbsp;: où vit un prototype, ce qu&rsquo;il doit contenir, ce qu&rsquo;il ne doit jamais faire. Les écrire, c&rsquo;est l&rsquo;essentiel du travail, et c&rsquo;est du travail produit&nbsp;: <strong>décider à quoi ressemble un bon résultat avant que quoi que ce soit ne soit généré.</strong></p>
-
-      <p class="rv">Par exemple, celui qui génère un prototype à partir d&rsquo;une capture&nbsp;:</p>
+      <div class="stepnum rv">Étape 2</div>
+      <h3 class="rv">Le skill <code>proto-start-capture</code></h3>
+      <p class="rv">Le skill écrit la capture dans la <code>v1</code> du prototype, puis applique la feature dans ce même fichier. <strong>J&rsquo;itère ensuite en local</strong>, version après version, jusqu&rsquo;à ce que le prototype soit sec.</p>
 
       <div class="skill rv">
         <div class="bar"><span class="dot"></span><span>proto-start-capture</span><span class="grow"></span><span>extrait</span></div>
@@ -797,24 +833,17 @@
 <span class="ln" style="--i:29"><span>  c'est l'intérêt de partir d'une capture.</span></span></pre>
       </div>
 
-      <p class="lab rv" style="--d:1">Impact</p>
-      <p class="rv" style="--d:1">Le gain n&rsquo;est pas d&rsquo;abord la vitesse. C&rsquo;est <mark class="hl">jusqu&rsquo;où je peux désormais descendre dans le détail fonctionnel</mark>&nbsp;: états vides, erreurs, permissions, variantes pénibles. Les cas qui restaient dans ma tête, ou qui restaient inconnus, sont maintenant à l&rsquo;écran, là où l&rsquo;équipe peut les contester.</p>
-    </div>
+      <div class="stepnum rv">Étape 3</div>
+      <h3 class="rv">Le skill <code>ship</code></h3>
+      <p class="rv">Quand c&rsquo;est prêt, <code>ship</code> publie. Il crée la branche, rédige la description de la merge request (contexte, solution, changements, critères d&rsquo;acceptance, lien du prototype) et complète le fichier de contexte s&rsquo;il manque. L&rsquo;auteur est relu depuis Git à chaque publication, jamais codé en dur.</p>
+      <p class="rv" style="--d:1"><mark class="hl">Rien n&rsquo;arrive sur la branche principale sans une merge request relue</mark>, y compris mon propre travail. Une fois le merge fait, le Design Hub se régénère tout seul.</p>
 
-    <div class="wide">
-      <div class="figpair">
-        <figure class="rv">
-          <img src="assets/img/hub-skills.png" alt="La page des skills du Design Hub, listant les skills partagés groupées par Discovery, Design et Delivery.">
-          <figcaption>Les skills, partagés avec l&rsquo;équipe</figcaption>
-        </figure>
-        <figure class="rv" style="--d:1">
-          <img src="assets/img/hub-overview.png" alt="La page d&rsquo;accueil du Design Hub, avec le nombre de prototypes, de skills, de templates, de documents et de contributeurs, et l&rsquo;activité récente.">
-          <figcaption>Le hub, généré depuis le repo</figcaption>
-        </figure>
-      </div>
+      <p class="lab rv" style="--d:2">Impact</p>
+      <p class="rv" style="--d:2">Le gain n&rsquo;est pas d&rsquo;abord la vitesse. C&rsquo;est <mark class="hl">jusqu&rsquo;où je peux désormais descendre dans le détail fonctionnel</mark>&nbsp;: états vides, erreurs, permissions, variantes pénibles. Les cas qui restaient dans ma tête, ou qui restaient inconnus, sont maintenant à l&rsquo;écran, là où l&rsquo;équipe peut les contester.</p>
     </div>
 
     <div class="col">
+      <div class="stepnum rv">Étape 4</div>
       <h3 class="rv">Un prototype ne vaut pas grand-chose s&rsquo;il ne se souvient pas de pourquoi il existe.</h3>
 
       <p class="lab rv" style="--d:1">Contexte</p>

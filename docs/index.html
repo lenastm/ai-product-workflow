@@ -751,7 +751,6 @@
       </h1>
       <div class="byline load" style="--d:2">
         <div class="who">Léna Santamaria<span>Product Manager · Paxone, Wiremind</span></div>
-        <div class="meta">~8 min de lecture</div>
       </div>
     </div>
   </header>
@@ -833,11 +832,11 @@
         <div class="ar" aria-hidden="true"><span>→</span></div>
         <div class="cell ai"><span class="k">Claude</span><p>Répond sur la codebase, la base de données et les logs. Puis m’interroge par rounds.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell"><span class="k">Sortie</span><p>Une solution sèche, edge cases nommés.</p></div>
+        <div class="cell"><span class="k">Sortie</span><p>Une solution figée, edge cases nommés.</p></div>
       </div>
 
       <p class="lab rv" style="--d:2">Contexte</p>
-      <p class="rv" style="--d:2">Cadrer une feature sur un système mature, c’est prédire comment elle va entrer en collision avec tout ce qui existe déjà. J'avais peu de moyen de savoir ce que le système faisait réellement aujourd'hui sans mobiliser un développeur experimenté sur le sujet.</p>
+      <p class="rv" style="--d:2">Cadrer une feature sur un système mature, c’est prédire comment elle va entrer en collision avec tout ce qui existe déjà. J’avais peu de moyens de savoir ce que le système faisait réellement aujourd'hui sans mobiliser un développeur expérimenté sur le sujet.</p>
       <p class="rv" style="--d:4">Cela impacte la qualité du produit et notre temps&nbsp;: <strong>un edge case oublié ressort, au mieux, en développement</strong>, au moment où ajouter du travail n’est pas toujours possible.</p>
 
       <h3 class="rv">Claude est mon sparring partner qui lit la codebase</h3>
@@ -908,7 +907,7 @@
 
       <p class="lab rv" style="--d:2">Contexte</p>
       <p class="rv" style="--d:2">Mon équipe n’a jamais eu de designer, donc je fais le design en plus du travail produit. <strong>J’ai commencé sur Figma</strong>, et j’intégrais les écrans directement dans les specs sur Notion.</p>
-      <p class="rv" style="--d:3">Ce que je produisais, c’étaient des <strong>écrans, pas des prototypes</strong>.&nbsp; Chaque itération était trop lente pour que je descende au-delà des cas principaux et la bibliothèque de composants n’était jamais tout à fait à jour.</p>
+      <p class="rv" style="--d:3">Ce que je produisais, c’étaient des <strong>écrans, pas des prototypes</strong>. Chaque itération était trop lente pour que je descende au-delà des cas principaux et la bibliothèque de composants n’était jamais tout à fait à jour.</p>
       <ul class="rv" style="--d:4">
         <li>Itérer prenait assez de temps pour que je dépasse rarement le happy path</li>
         <li>Je montrais une image, pas un comportement&nbsp;: pas d’état vide, pas d’erreur, pas de variante</li>
@@ -937,7 +936,7 @@
     </div>
 
     <div class="col">
-      <p class="rv" style="--d:1">Je les ai écrits avec la PO de l'équipe, en nous inspirant des skills d'autres équipes de Wiremind. Nous les avons adaptés à nos process, et nous nous sommes accordées sur un enchaînement : du cadrage du besoin à la publication du prototype.&nbsp;</p>
+      <p class="rv" style="--d:1">J’ai écrit le premier ensemble de skills, en m’inspirant de ceux d’autres équipes de Wiremind. La PO les a ensuite améliorés et complétés. Nous nous sommes accordées sur un enchaînement&nbsp;: du cadrage du besoin à la publication du prototype.&nbsp;</p>
 
       <div class="ba rv">
         <div class="side was">
@@ -972,7 +971,6 @@
     </div>
 
     <div class="col">
-      <div class="stepnum rv">Étape 1</div>
       <h3 class="rv">La capture</h3>
       <p class="rv">Un outil interne, construit par une autre équipe chez Wiremind, exporte n’importe quel écran réel en HTML. Mon prototype part du produit tel qu’il est, et je n’édite que la partie que la feature touche. <mark class="hl">Je ne maintiens plus un design system en parallèle.</mark></p>
       <p class="rv">L’extension DesignCapture exporte l’écran réel en HTML, avec ses polices, ses icônes et ses images. C’est le point de départ&nbsp;: je ne redessine rien à la main.</p>
@@ -999,9 +997,8 @@
     </div>
 
     <div class="col">
-      <div class="stepnum rv">Étape 2</div>
       <h3 class="rv">Le skill <code>proto-start-capture</code></h3>
-      <p class="rv">Le skill va modifier le fichier HTML&nbsp;généré par la capture dans la <code>v1</code> du prototype. <strong>J’itère ensuite en local</strong>, version après version, jusqu’à ce que le prototype soit sec.</p>
+      <p class="rv">Le skill va modifier le fichier HTML&nbsp;généré par la capture dans la <code>v1</code> du prototype. <strong>J’itère ensuite en local</strong>, version après version, jusqu’à ce que le prototype soit figé.</p>
 
       <div class="skill rv">
         <div class="bar"><span class="dot"></span><span>proto-start-capture</span><span class="grow"></span><span>extrait</span></div>
@@ -1056,17 +1053,13 @@
     </div>
 
     <div class="col">
-      <div class="stepnum rv">Étape 3</div>
       <h3 class="rv">Le skill <code>ship</code></h3>
       <p class="rv">Quand c’est prêt, <code>ship</code> publie. Il crée la branche, rédige la description de la merge request (contexte, solution, changements, lien du prototype) et complète le fichier de contexte s’il manque. Je merge ensuite la MR sur Git.</p>
 
-      <p class="lab rv" style="--d:2">Impact</p>
-      <p class="rv" style="--d:2">Je gagne du temps, mais surtout je descends <mark class="hl">bien plus loin dans le détail fonctionnel</mark>&nbsp;: états vides, erreurs, permissions, variantes pénibles. Les cas qui restaient dans ma tête, ou qui restaient inconnus, sont maintenant à l’écran, là où l’équipe peut les contester.</p>
     </div>
 
     <div class="col">
-      <div class="stepnum rv">Étape 4</div>
-      <h3 class="rv">Un prototype ne vaut pas grand-chose s’il ne se souvient pas de pourquoi il existe.</h3>
+      <h3 class="rv">La mémoire</h3>
 
       <p class="lab rv" style="--d:1">Contexte</p>
       <p class="rv" style="--d:1">Ce qui en a fait quelque chose que mon équipe utilise, c’est que chaque prototype porte son propre raisonnement et son propre historique.</p>
@@ -1095,7 +1088,8 @@
 
     <div class="col">
       <p class="lab rv">Impact</p>
-      <p class="rv">Les questions produit se tranchent en regardant quelque chose plutôt qu’en le décrivant. Les développeurs reçoivent l’intention sous forme d’artefact, avec son raisonnement attaché, plutôt qu’un lien et une conversation.</p>
+      <p class="rv">Je gagne du temps, mais surtout je descends <mark class="hl">bien plus loin dans le détail fonctionnel</mark>&nbsp;: états vides, erreurs, permissions, variantes pénibles. Les cas qui restaient dans ma tête, ou qui restaient inconnus, sont maintenant à l’écran, là où l’équipe peut les contester.</p>
+      <p class="rv" style="--d:1">Les questions produit se tranchent en regardant quelque chose plutôt qu’en le décrivant. Les développeurs reçoivent l’intention sous forme d’artefact, avec son raisonnement attaché, plutôt qu’un lien et une conversation.</p>
       <p class="rv" style="--d:1">Et je ne suis plus seule à produire l’interface&nbsp;: <strong>la PO reprend les skills, les améliore, et livre aussi ses propres prototypes.</strong></p>
 
     </div>
@@ -1108,11 +1102,11 @@
     </div>
 
     <div class="col">
-      <h3 class="rv">Un écran porte 120 morceaux de traduction. Ils voyageaient dans plusieurs outils</h3>
+      <h3 class="rv">Un écran porte 120 morceaux de wording. Ils voyageaient dans plusieurs outils</h3>
 
       <div class="stat rv" style="--d:1">
         <div class="num" data-count="120">120</div>
-        <div class="cap">morceaux de traduction sur un seul écran, en deux langues</div>
+        <div class="cap">morceaux de wording sur un seul écran, en deux langues</div>
       </div>
 
       <p class="lab rv" style="--d:1">Contexte</p>
@@ -1127,8 +1121,8 @@
 
     <div class="wide">
       <figure class="rv">
-        <img src="assets/img/wording-table.png" alt="Un tableau bilingue listant chaque morceau de copy d’un prototype, français et anglais côte à côte, chacun avec une clé stable, et un export JSON.">
-        <figcaption>120 morceaux de copy, deux langues, une seule source</figcaption>
+        <img src="assets/img/wording-table.png" alt="Un tableau bilingue listant chaque morceau de wording d’un prototype, français et anglais côte à côte, chacun avec une clé stable, et un export JSON.">
+        <figcaption>120 morceaux de wording, deux langues, une seule source</figcaption>
       </figure>
     </div>
   </section>
@@ -1197,7 +1191,7 @@
         </div>
         <div class="c rv" style="--d:1">
           <h4>Repris d’ailleurs</h4>
-          <p>Le serveur <strong>MCP</strong> qui interroge la codebase, la base de données et les logs&nbsp;: construit par notre CTO. L’extension <strong>DesignCapture</strong>&nbsp;: construite par une autre équipe de Wiremind. Et une partie des skills&nbsp;: écrite par la PO de l’équipe.</p>
+          <p>Le serveur <strong>MCP</strong> qui interroge la codebase, la base de données et les logs&nbsp;: construit par notre CTO. L’extension <strong>DesignCapture</strong>&nbsp;: construite par une autre équipe de Wiremind. Et les améliorations apportées aux skills&nbsp;: par la PO de l’équipe.</p>
         </div>
         <div class="c accent rv" style="--d:2">
           <h4>Délégué à Claude</h4>
@@ -1215,7 +1209,7 @@
       <p class="rv" style="--d:2">Ce process a seulement quelques mois. <mark class="hl">Je n’ai pas encore le recul pour dire que j’aurais dû m’y prendre autrement.</mark></p>
 
       <p class="lab rv" style="--d:3">Ce que je veux améliorer</p>
-      <p class="rv" style="--d:3"><strong>Le prototype qui part de zéro.</strong> Quand l’écran n’existe pas encore dans le produit, il n’y a rien à capturer. Le prototype se construit avec un résultat nettement moins fidèle que depuis une capture.&nbsp;</p>
+      <p class="rv" style="--d:3"><strong>Le prototype qui part de zéro.</strong> Quand l’écran n’existe pas encore dans le produit, il n’y a rien à capturer. Le prototype doit être construit de zéro, et le résultat est nettement moins fidèle.&nbsp;</p>
     </div>
   </section>
 

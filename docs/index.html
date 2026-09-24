@@ -761,17 +761,17 @@
 
       <div class="flow rv">
         <div class="cell"><span class="k">Entrée</span><p>Des appels d’offres de plusieurs centaines de pages, et des interviews utilisateurs d’une heure.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
-        <div class="cell ai"><span class="k">Claude</span><p>Interroge le corpus, synthétise les conversations.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
-        <div class="cell"><span class="k">Sortie</span><p>Un besoin formulé, avec ses zones d’ombre.</p></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
+        <div class="cell ai"><span class="k">Claude</span><p>Interroge le contenu, synthétise les conversations.</p></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
+        <div class="cell"><span class="k">Sortie</span><p>Un besoin formulé</p></div>
       </div>
 
       <p class="lab rv" style="--d:2">Contexte</p>
       <p class="rv" style="--d:2">Les besoins clients nous arrivent sous deux formes inexploitables&nbsp;: des appels d’offres qui font des centaines de pages d’exigences, et les interviews utilisateurs que le Product Expert et moi menons ensemble, où le vrai besoin est noyé dans une heure de conversation. Les deux demandent des jours à traiter, et les deux finissent survolés faute de temps.</p>
 
       <p class="lab rv" style="--d:3">Approche</p>
-      <p class="rv" style="--d:3">J’interroge directement le corpus d’appels d’offres au lieu de le lire linéairement, et je fais synthétiser nos conversations d’interview pour en extraire le besoin derrière la demande, le tout avec Gemini car les ressources sont des fichiers Google. J’en tire un besoin formulé, avec ses zones d’ombre, que je peux challenger et confronter au produit.</p>
+      <p class="rv" style="--d:3">J’interroge directement le corpus d’appels d’offres au lieu de le lire linéairement, et je fais synthétiser nos conversations d’interview pour en extraire le besoin derrière la demande, le tout avec Gemini. J’en tire un besoin formulé, avec ses zones d’ombre, que je peux challenger et confronter au produit.</p>
 
       <p class="lab rv" style="--d:4">Impact</p>
       <p class="rv" style="--d:4">Nous arrivons au framing en sachant déjà ce que les clients ont demandé, à quelle fréquence, et avec quels mots. <strong>Le travail passe de l’extraction à l’interprétation.</strong></p>
@@ -785,10 +785,10 @@
 
       <div class="flow rv">
         <div class="cell"><span class="k">Entrée</span><p>Un besoin cadré, et un système existant que je connais mal.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
-        <div class="cell ai"><span class="k">Claude</span><p>Répond sur la codebase, la base et les logs. Puis m’interroge par rounds.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
-        <div class="cell"><span class="k">Sortie</span><p>Une solution arrêtée, edge cases nommés.</p></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
+        <div class="cell ai"><span class="k">Claude</span><p>Répond sur la codebase, la base de données et les logs. Puis m’interroge par rounds.</p></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
+        <div class="cell"><span class="k">Sortie</span><p>Une solution sèche, edge cases nommés.</p></div>
       </div>
 
       <p class="lab rv" style="--d:2">Contexte</p>
@@ -855,9 +855,9 @@
 
       <div class="flow rv">
         <div class="cell"><span class="k">Entrée</span><p>Une capture de l’écran réel, exportée en HTML.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
         <div class="cell ai"><span class="k">Claude</span><p>Édite la capture version après version, puis publie dans le hub.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
         <div class="cell"><span class="k">Sortie</span><p>Un prototype interactif, avec son contexte et son historique.</p></div>
       </div>
 
@@ -924,7 +924,7 @@
         </figure>
         <figure class="rv" style="--d:1">
           <img src="assets/img/capture-library.png" alt="La bibliothèque de l’outil de capture, listant les pages produit capturées dont on peut partir.">
-          <figcaption>Les captures SAUVEGARDéES</figcaption>
+          <figcaption>Les captures sauvegardées</figcaption>
         </figure>
       </div>
     </div>
@@ -932,7 +932,7 @@
     <div class="wide">
       <figure class="rv">
         <img src="assets/img/product-screen.png" alt="Un écran réel de PAXONE ouvert dans l’éditeur de l’outil de capture, prêt à servir de base à un prototype.">
-        <figcaption>Un écran produit capturé, prêt à être édité PAR CLAUDE</figcaption>
+        <figcaption>Un écran produit capturé, prêt à être édité par Claude</figcaption>
       </figure>
     </div>
 
@@ -980,15 +980,15 @@
       <div class="film rv">
         <figure>
           <img src="assets/img/proto-v1.png" alt="Première version du prototype : deux colonnes de cartes sur un fond gris, sans l’interface du produit autour.">
-          <figcaption><b>v1</b>Une esquisse posée sur fond gris. Deux colonnes, aucun statut.</figcaption>
+          <figcaption><b>v1</b></figcaption>
         </figure>
         <figure>
           <img src="assets/img/proto-v4.png" alt="Quatrième version : la même page à l’intérieur de l’interface réelle de PAXONE, sur trois colonnes.">
-          <figcaption><b>v4</b>Le shell réel du produit, trois colonnes. Le vocabulaire est encore descriptif.</figcaption>
+          <figcaption><b>v4</b></figcaption>
         </figure>
         <figure>
           <img src="assets/img/proto-v9.png" alt="Neuvième version : libellés tranchés, indicateurs de statut en production, actions réduites à celles qui ont un sens dans chaque état.">
-          <figcaption><b>v9</b>Libellés tranchés, statuts « en production », et seulement les actions qui ont un sens dans chaque état.</figcaption>
+          <figcaption><b>v9</b></figcaption>
         </figure>
       </div>
     </div>
@@ -1021,14 +1021,14 @@
     <div class="col">
       <figure class="rv">
         <img src="assets/img/hub-proto-summary.png" alt="Le panneau d’un prototype dans le hub : son titre, son auteur, son énoncé de problème et son objectif détaillé.">
-        <figcaption>Le problème et l’objectif, attachés au prototype</figcaption>
+        <figcaption>Chaque prototype porte son raisonnement</figcaption>
       </figure>
     </div>
 
     <div class="wide">
       <figure class="rv">
         <img src="assets/img/hub-proto-versions.png" alt="Un prototype ouvert dans le hub, avec la barre de versions v1 à v9 en haut, la neuvième sélectionnée.">
-        <figcaption>Neuf versions, aucune écrasée</figcaption>
+        <figcaption>Exemple de prototype versionné</figcaption>
       </figure>
     </div>
 
@@ -1079,9 +1079,9 @@
 
       <div class="flow rv">
         <div class="cell"><span class="k">Entrée</span><p>Le prototype figé, et le défrichage avec le tech owner.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
         <div class="cell ai"><span class="k">Claude</span><p>Écrit les user stories détaillées à partir du prototype.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
         <div class="cell"><span class="k">Sortie</span><p>Un backlog découpé, critères d’acceptation écrits.</p></div>
       </div>
 
@@ -1104,9 +1104,9 @@
 
       <div class="flow rv">
         <div class="cell"><span class="k">Entrée</span><p>La spec, les user stories et notre glossaire.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
         <div class="cell ai"><span class="k">Claude</span><p>Vulgarise pour l’utilisateur, puis traduit.</p></div>
-        <div class="ar" aria-hidden="true"><span>&rarr;</span></div>
+        <div class="ar" aria-hidden="true"><span>→</span></div>
         <div class="cell"><span class="k">Sortie</span><p>Doc utilisateur et release notes, en français et en anglais.</p></div>
       </div>
 

@@ -690,17 +690,17 @@
     border-left:5px solid var(--line);
     border-top:3.5px solid transparent;border-bottom:3.5px solid transparent;
   }
-  body.js .rv.in .pipe .line,body:not(.js) .pipe .line{transform:scaleX(1);transition:transform .5s cubic-bezier(.22,.68,.32,1)}
-  body.js .rv.in .pipe .step:nth-of-type(2) .line{transition-delay:.25s}
-  body.js .rv.in .pipe .step:nth-of-type(4) .line{transition-delay:.5s}
-  body.js .rv.in .pipe .step:nth-of-type(6) .line{transition-delay:.75s}
-  body.js .rv.in .pipe .step:nth-of-type(8) .line{transition-delay:1s}
-  body.js .rv .pipe .node{opacity:0}
-  body.js .rv.in .pipe .node{opacity:1;transition:opacity .35s ease}
-  body.js .rv.in .pipe .node:nth-of-type(3){transition-delay:.3s}
-  body.js .rv.in .pipe .node:nth-of-type(5){transition-delay:.55s}
-  body.js .rv.in .pipe .node:nth-of-type(7){transition-delay:.8s}
-  body.js .rv.in .pipe .node:nth-of-type(9){transition-delay:1.05s}
+  body.js .rv.in.pipe .line,body:not(.js) .pipe .line{transform:scaleX(1);transition:transform .5s cubic-bezier(.22,.68,.32,1)}
+  body.js .rv.in.pipe .step:nth-of-type(2) .line{transition-delay:.25s}
+  body.js .rv.in.pipe .step:nth-of-type(4) .line{transition-delay:.5s}
+  body.js .rv.in.pipe .step:nth-of-type(6) .line{transition-delay:.75s}
+  body.js .rv.in.pipe .step:nth-of-type(8) .line{transition-delay:1s}
+  body.js .rv.pipe .node{opacity:0}
+  body.js .rv.in.pipe .node{opacity:1;transition:opacity .35s ease}
+  body.js .rv.in.pipe .node:nth-of-type(3){transition-delay:.3s}
+  body.js .rv.in.pipe .node:nth-of-type(5){transition-delay:.55s}
+  body.js .rv.in.pipe .node:nth-of-type(7){transition-delay:.8s}
+  body.js .rv.in.pipe .node:nth-of-type(9){transition-delay:1.05s}
 
   /* ---------- narrow ---------- */
   @media (max-width:760px){
@@ -733,7 +733,7 @@
     .pipe .step{padding:9px 0;grid-auto-flow:row}
     .pipe .line{width:1px;height:26px;justify-self:center;transform:scaleY(0);transform-origin:top}
     .pipe .line::after{right:-3px;top:auto;bottom:0;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-top:5px solid var(--line);border-bottom:0}
-    body.js .rv.in .pipe .line,body:not(.js) .pipe .line{transform:scaleY(1)}
+    body.js .rv.in.pipe .line,body:not(.js) .pipe .line{transform:scaleY(1)}
   }
 </style>
 

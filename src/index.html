@@ -553,6 +553,24 @@
     .aside .skill pre{font-size:11.5px;line-height:1.62}
   }
 
+  /* ---------- captures empilées + extrait de skill ---------- */
+  .protopair{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+    gap:36px;
+    align-items:start;
+  }
+  .protopair .shots{display:grid;gap:18px}
+  .protopair .shots figure{margin:0}
+  .protopair .skill{margin-top:5px}
+  .protopair .skill pre{font-size:11px;line-height:1.6}
+  @media (max-width:1059px){
+    .protopair{grid-template-columns:1fr;gap:0}
+    .protopair .skill{margin-top:30px}
+    .protopair .skill pre{font-size:11.5px;line-height:1.62}
+  }
+
   /* ---------- steps ---------- */
   .stepnum{
     font-family:"JetBrains Mono",ui-monospace,monospace;
@@ -669,16 +687,16 @@
 
   /* ---------- C · filmstrip ---------- */
   .film{margin-top:0;display:grid;grid-template-columns:repeat(3,1fr);align-items:start;gap:18px}
-  .film figure{
+  .film figure,.shots figure{
     margin:0;border:1px solid var(--line);border-radius:10px;
     overflow:hidden;background:var(--surface);box-shadow:var(--shadow);
   }
-  .film figcaption{
+  .film figcaption,.shots figcaption{
     font-family:"Open Sans",sans-serif;
     font-size:12.5px;letter-spacing:0;text-transform:none;line-height:1.45;
     padding:11px 13px;
   }
-  .film figcaption b{
+  .film figcaption b,.shots figcaption b{
     display:block;
     font-family:"JetBrains Mono",ui-monospace,monospace;
     font-size:10.5px;letter-spacing:.14em;color:var(--violet);
@@ -950,20 +968,6 @@
 
     <div class="col">
       <p class="rv" style="--d:1">I wrote the first set of skills, drawing on those of other teams at Wiremind. The PO then improved and extended them. We agreed together on a sequence&nbsp;: from framing the need to publishing the prototype.&nbsp;</p>
-
-      <div class="ba rv">
-        <div class="side was">
-          <h5>Before&nbsp;: Figma</h5>
-          <p>Static screens, made by hand.</p>
-          <p>Very slow to produce.</p>
-        </div>
-        <div class="arrow" aria-hidden="true"><span>→</span></div>
-        <div class="side now">
-          <h5>Now&nbsp;: Claude</h5>
-          <p>Interactive prototypes, built on the product’s current components.</p>
-          <p>Far more efficient iterations, so I can design every state and every case. Which means more quality in the specification.</p>
-        </div>
-      </div>
     </div>
 
 
@@ -1011,10 +1015,27 @@
     <div class="col">
       <h3 class="rv">The <code>proto-start-capture</code> skill</h3>
       <p class="rv">The skill edits the HTML file produced by the capture into the <code>v1</code> of the prototype. <strong>I then iterate locally</strong>, version after version, until the prototype is settled.</p>
+    </div>
 
-      <div class="skill rv">
-        <div class="bar"><span class="dot"></span><span>proto-start-capture</span><span class="grow"></span><span>excerpt</span></div>
-        <pre><span class="ln" style="--i:0"><span class="f"># proto-start-capture</span></span>
+    <div class="wide">
+      <div class="protopair rv">
+        <div class="shots">
+          <figure>
+            <img src="assets/img/proto-v1.png" alt="First version of the prototype: two columns of cards on a grey background, without the surrounding product interface.">
+            <figcaption><b>v1</b></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/proto-v4.png" alt="Fourth version: the same page inside the real PAXONE interface, on three columns.">
+            <figcaption><b>v4</b></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/proto-v9.png" alt="Ninth version: sharpened labels, production status indicators, actions reduced to the ones that make sense in each state.">
+            <figcaption><b>v9</b></figcaption>
+          </figure>
+        </div>
+        <div class="skill">
+          <div class="bar"><span class="dot"></span><span>proto-start-capture</span><span class="grow"></span><span>excerpt</span></div>
+          <pre><span class="ln" style="--i:0"><span class="f"># proto-start-capture</span></span>
 <span class="ln" style="--i:1"><span class="d">  Génère un prototype HTML fidèle à partir d'une capture du vrai</span></span>
 <span class="ln" style="--i:2"><span class="d">  front, au lieu de reconstruire le HTML depuis zéro.</span></span>
 <span class="ln" style="--i:3"><span class="h">## Le traitement de la capture</span></span>
@@ -1027,23 +1048,7 @@
 <span class="ln" style="--i:10"><span>  Un proto commence toujours à v1. Si v1 existe déjà, le skill</span></span>
 <span class="ln" style="--i:11"><span>  s'arrête et renvoie vers /proto-iteration. Les versions</span></span>
 <span class="ln" style="--i:12"><span>  précédentes ne sont jamais écrasées.</span></span></pre>
-      </div>
-    </div>
-
-    <div class="wide">
-      <div class="film rv">
-        <figure>
-          <img src="assets/img/proto-v1.png" alt="First version of the prototype: two columns of cards on a grey background, without the surrounding product interface.">
-          <figcaption><b>v1</b></figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/proto-v4.png" alt="Fourth version: the same page inside the real PAXONE interface, on three columns.">
-          <figcaption><b>v4</b></figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/proto-v9.png" alt="Ninth version: sharpened labels, production status indicators, actions reduced to the ones that make sense in each state.">
-          <figcaption><b>v9</b></figcaption>
-        </figure>
+        </div>
       </div>
     </div>
 
@@ -1060,7 +1065,7 @@
 
       <p class="lab rv" style="--d:2">Approach</p>
       <ul class="rv" style="--d:2">
-        <li><strong>Its problem, its objective and its decisions</strong>, so that a reviewer knows what they are looking at and what was deliberately left out</li>
+        <li><strong>Its problem, its objective and its decisions</strong>, written by my skills into a <code>context.md</code> file that travels with the prototype, so that a reviewer knows what they are looking at and what was deliberately left out</li>
         <li><strong>Every version, never overwritten.</strong>&nbsp;When someone asks three weeks later why we dropped an option, that version is still there</li>
         <li><strong>A shareable link</strong>, so developers, QA and management can open it with nothing to install</li>
       </ul>
@@ -1096,6 +1101,8 @@
     </div>
 
     <div class="col">
+      <h3 class="rv">Translations management</h3>
+
       <p class="lab rv" style="--d:1">Context</p>
       <p class="rv" style="--d:1">Interface wording is the most systematically lost object in product work. It lives in mockup annotations, in spec review comments and in chat messages, then it gets retyped by hand, in two languages, by someone who could not find the source of truth.</p>
 

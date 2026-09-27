@@ -557,17 +557,19 @@
   .protopair{
     margin-top:34px;
     display:grid;
-    grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+    grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
     gap:36px;
     align-items:start;
   }
   .protopair .shots{display:grid;gap:18px}
   .protopair .shots figure{margin:0}
-  .protopair .skill{margin-top:5px}
+  /* l'extrait est plus court que la pile de captures : on le centre plutôt que
+     de laisser un blanc orphelin en bas de la colonne de droite */
+  .protopair .skill{margin-top:0;align-self:center}
   .protopair .skill pre{font-size:11px;line-height:1.6}
   @media (max-width:1059px){
     .protopair{grid-template-columns:1fr;gap:0}
-    .protopair .skill{margin-top:30px}
+    .protopair .skill{margin-top:30px;align-self:start}
     .protopair .skill pre{font-size:11.5px;line-height:1.62}
   }
 

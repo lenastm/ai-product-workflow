@@ -533,6 +533,22 @@
     transition-delay:calc(.15s + var(--i,0) * 20ms);
   }
 
+  /* ---------- prose + extrait de skill côte à côte ---------- */
+  .aside{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+    gap:40px;
+    align-items:start;
+  }
+  .aside .asidetext p{max-width:none}
+  .aside .asidetext > :first-child{margin-top:0}
+  .aside .skill{margin-top:5px}
+  @media (max-width:860px){
+    .aside{grid-template-columns:1fr;gap:0}
+    .aside .skill{margin-top:26px}
+  }
+
   /* ---------- steps ---------- */
   .stepnum{
     font-family:"JetBrains Mono",ui-monospace,monospace;
@@ -841,51 +857,53 @@
 
       <h3 class="rv">Claude is my sparring partner, and it has read the codebase</h3>
 
-      <p class="lab rv" style="--d:1">Approach</p>
-      <p class="rv" style="--d:1">I clone the repository locally and I use <strong>Claude Code</strong>, the AI assistant I work with, to query the codebase directly. For the database and the logs, I go through the MCP server our CTO built&nbsp;: <strong>I didn’t build it, but I use it constantly</strong>. Both answer on what the product does <mark class="hl"><strong>today</strong></mark>, not on what the documentation claims, and I no longer need to guess or to pull in a developer to find out.</p>
+    </div>
 
-      <p class="rv" style="--d:2">Then, when it comes to working out the solution, I use a <strong>skill</strong> I wrote to challenge me&nbsp;: it questions me rather than the other way round, asks in rounds, names the edge cases I haven’t mentioned, and challenges the scope.</p>
+    <div class="wide">
+      <div class="aside rv">
+        <div class="asidetext">
+          <p class="lab">Approach</p>
+          <p>I clone the repository locally and I use <strong>Claude Code</strong>, the AI assistant I work with, to query the codebase directly. For the database and the logs, I go through the MCP server our CTO built&nbsp;: <strong>I didn’t build it, but I use it constantly</strong>. Both answer on what the product does <mark class="hl"><strong>today</strong></mark>, not on what the documentation claims, and I no longer need to guess or to pull in a developer to find out.</p>
+          <p>Then, when it comes to working out the solution, I use a <strong>skill</strong> I wrote to challenge me&nbsp;: it questions me rather than the other way round, asks in rounds, names the edge cases I haven’t mentioned, and challenges the scope.</p>
+          <p class="lab">The skill itself</p>
+          <p>I wrote it as a document, not as a prompt&nbsp;: a role, an expected behaviour, a sequence, and what it must refuse to do. It is written in French and in our product vocabulary&nbsp;; what matters here is the structure.</p>
+        </div>
 
-      <p class="lab rv">The skill itself</p>
-      <p class="rv">I wrote it as a document, not as a prompt&nbsp;: a role, an expected behaviour, a sequence, and what it must refuse to do. It is written in French and in our product vocabulary&nbsp;; what matters here is the structure.</p>
-
-      <div class="skill rv">
-        <div class="bar"><span class="dot"></span><span>feature-planner</span><span class="grow"></span><span>excerpt</span></div>
-        <pre><span class="ln" style="--i:0"><span class="f"># feature-planner</span></span>
-<span class="ln" style="--i:1"><span>&nbsp;</span></span>
-<span class="ln" style="--i:2"><span class="d">  Cadrer un besoin produit PAXONE en posant les bonnes questions</span></span>
-<span class="ln" style="--i:3"><span class="d">  avant de rédiger une Spec ou un prototype.</span></span>
-<span class="ln" style="--i:4"><span>&nbsp;</span></span>
-<span class="ln" style="--i:5"><span class="h">## Rôle</span></span>
-<span class="ln" style="--i:6"><span>  Sparring partner PM : explorer et structurer un besoin avant qu'il</span></span>
-<span class="ln" style="--i:7"><span>  devienne une Spec (PAX-XXX) ou un Projet. Ne pas rédiger de spec :</span></span>
-<span class="ln" style="--i:8"><span>  poser des questions, anticiper les angles morts, challenger la scope.</span></span>
-<span class="ln" style="--i:9"><span>&nbsp;</span></span>
-<span class="ln" style="--i:10"><span class="h">## Comportement</span></span>
-<span class="ln" style="--i:11"><span>  - En français, style direct</span></span>
-<span class="ln" style="--i:12"><span>  - Questions par rounds de 2-3, attendre les réponses</span></span>
-<span class="ln" style="--i:13"><span>  - Formuler des hypothèses, signaler les edge cases non mentionnés</span></span>
-<span class="ln" style="--i:14"><span>&nbsp;</span></span>
-<span class="ln" style="--i:15"><span class="h">## Déroulé</span></span>
-<span class="ln" style="--i:16"><span>  1. Problème     problème utilisateur concret, personas (chef de</span></span>
-<span class="ln" style="--i:17"><span>                  produit, agent supervision, gestionnaire</span></span>
-<span class="ln" style="--i:18"><span>                  d'incident, EF...), origine (GITE / terrain / OSDM)</span></span>
-<span class="ln" style="--i:19"><span>  2. Périmètre    interfaces (Inventaire / Portail Agent / OSDM API /</span></span>
-<span class="ln" style="--i:20"><span>                  Onboard), modules impactés, impact sur bookings /</span></span>
-<span class="ln" style="--i:21"><span>                  fulfillment / reacom, hors scope</span></span>
-<span class="ln" style="--i:22"><span>  3. Cas d'usage  nominal, alternatifs, edge cases (statuts</span></span>
-<span class="ln" style="--i:23"><span>                  PROCESSING / INCONSISTENT / ON-HOLD, permissions</span></span>
-<span class="ln" style="--i:24"><span>                  par rôle, volumes, collectif / multi-segment / A-R,</span></span>
-<span class="ln" style="--i:25"><span>                  perturbations)</span></span>
-<span class="ln" style="--i:26"><span>  4. Contraintes  OSDM, intégrations (RailCube / CAYZN / PSP),</span></span>
-<span class="ln" style="--i:27"><span>                  spécificités client, décisions ouvertes, risques</span></span>
-<span class="ln" style="--i:28"><span>&nbsp;</span></span>
-<span class="ln" style="--i:29"><span class="h">## Sortie</span></span>
-<span class="ln" style="--i:30"><span>  Un brief de cadrage structuré (problème, personas, interfaces /</span></span>
-<span class="ln" style="--i:31"><span>  modules, cas d'usage, edge cases, risques, hors scope, décisions</span></span>
-<span class="ln" style="--i:32"><span>  ouvertes), puis proposer /ticket-redaction ou /proto-start.</span></span></pre>
+        <div class="skill">
+          <div class="bar"><span class="dot"></span><span>feature-planner</span><span class="grow"></span><span>excerpt</span></div>
+                          <pre><span class="ln" style="--i:0"><span class="f"># feature-planner</span></span>
+<span class="ln" style="--i:1"><span class="d">  Cadrer un besoin produit PAXONE en posant les bonnes questions</span></span>
+<span class="ln" style="--i:2"><span class="d">  avant de rédiger une Spec ou un prototype.</span></span>
+<span class="ln" style="--i:3"><span class="h">## Rôle</span></span>
+<span class="ln" style="--i:4"><span>  Sparring partner PM : explorer et structurer un besoin avant qu'il</span></span>
+<span class="ln" style="--i:5"><span>  devienne une Spec (PAX-XXX) ou un Projet. Ne pas rédiger de spec :</span></span>
+<span class="ln" style="--i:6"><span>  poser des questions, anticiper les angles morts, challenger la scope.</span></span>
+<span class="ln" style="--i:7"><span class="h">## Comportement</span></span>
+<span class="ln" style="--i:8"><span>  - En français, style direct</span></span>
+<span class="ln" style="--i:9"><span>  - Questions par rounds de 2-3, attendre les réponses</span></span>
+<span class="ln" style="--i:10"><span>  - Formuler des hypothèses, signaler les edge cases non mentionnés</span></span>
+<span class="ln" style="--i:11"><span class="h">## Déroulé</span></span>
+<span class="ln" style="--i:12"><span>  1. Problème     problème utilisateur concret, personas (chef de</span></span>
+<span class="ln" style="--i:13"><span>                  produit, agent supervision, gestionnaire</span></span>
+<span class="ln" style="--i:14"><span>                  d'incident, EF...), origine (GITE / terrain / OSDM)</span></span>
+<span class="ln" style="--i:15"><span>  2. Périmètre    interfaces (Inventaire / Portail Agent / OSDM API /</span></span>
+<span class="ln" style="--i:16"><span>                  Onboard), modules impactés, impact sur bookings /</span></span>
+<span class="ln" style="--i:17"><span>                  fulfillment / reacom, hors scope</span></span>
+<span class="ln" style="--i:18"><span>  3. Cas d'usage  nominal, alternatifs, edge cases (statuts</span></span>
+<span class="ln" style="--i:19"><span>                  PROCESSING / INCONSISTENT / ON-HOLD, permissions</span></span>
+<span class="ln" style="--i:20"><span>                  par rôle, volumes, collectif / multi-segment / A-R,</span></span>
+<span class="ln" style="--i:21"><span>                  perturbations)</span></span>
+<span class="ln" style="--i:22"><span>  4. Contraintes  OSDM, intégrations (RailCube / CAYZN / PSP),</span></span>
+<span class="ln" style="--i:23"><span>                  spécificités client, décisions ouvertes, risques</span></span>
+<span class="ln" style="--i:24"><span class="h">## Sortie</span></span>
+<span class="ln" style="--i:25"><span>  Un brief de cadrage structuré (problème, personas, interfaces /</span></span>
+<span class="ln" style="--i:26"><span>  modules, cas d'usage, edge cases, risques, hors scope, décisions</span></span>
+<span class="ln" style="--i:27"><span>  ouvertes), puis proposer /ticket-redaction ou /proto-start.</span></span></pre>
+        </div>
       </div>
+    </div>
 
+    <div class="col">
       <p class="lab rv" style="--d:3">Impact</p>
       <p class="rv" style="--d:3">I come into framing with the real behaviour of the system in front of me, and I come out of it with the edge cases named. Fewer surprises reach development, and I have stopped spending a developer’s attention on questions I can answer on my own.</p>
     </div>
@@ -995,21 +1013,18 @@
       <div class="skill rv">
         <div class="bar"><span class="dot"></span><span>proto-start-capture</span><span class="grow"></span><span>excerpt</span></div>
         <pre><span class="ln" style="--i:0"><span class="f"># proto-start-capture</span></span>
-<span class="ln" style="--i:1"><span>&nbsp;</span></span>
-<span class="ln" style="--i:2"><span class="d">  Génère un prototype HTML fidèle à partir d'une capture du vrai</span></span>
-<span class="ln" style="--i:3"><span class="d">  front, au lieu de reconstruire le HTML depuis zéro.</span></span>
-<span class="ln" style="--i:4"><span>&nbsp;</span></span>
-<span class="ln" style="--i:5"><span class="h">## Le traitement de la capture</span></span>
-<span class="ln" style="--i:6"><span>  Le contenu capturé est redirigé tel quel vers sa destination</span></span>
-<span class="ln" style="--i:7"><span>  finale. Jamais réécrit : une réécriture reconstruit le fichier de</span></span>
-<span class="ln" style="--i:8"><span>  mémoire et introduit des dérives silencieuses (CSS réordonné,</span></span>
-<span class="ln" style="--i:9"><span>  attributs perdus), alors que la fidélité à la capture est toute</span></span>
-<span class="ln" style="--i:10"><span>  la raison d'être de cette commande.</span></span>
-<span class="ln" style="--i:11"><span>&nbsp;</span></span>
-<span class="ln" style="--i:12"><span class="h">## Le versionnage</span></span>
-<span class="ln" style="--i:13"><span>  Un proto commence toujours à v1. Si v1 existe déjà, le skill</span></span>
-<span class="ln" style="--i:14"><span>  s'arrête et renvoie vers /proto-iteration. Les versions</span></span>
-<span class="ln" style="--i:15"><span>  précédentes ne sont jamais écrasées.</span></span></pre>
+<span class="ln" style="--i:1"><span class="d">  Génère un prototype HTML fidèle à partir d'une capture du vrai</span></span>
+<span class="ln" style="--i:2"><span class="d">  front, au lieu de reconstruire le HTML depuis zéro.</span></span>
+<span class="ln" style="--i:3"><span class="h">## Le traitement de la capture</span></span>
+<span class="ln" style="--i:4"><span>  Le contenu capturé est redirigé tel quel vers sa destination</span></span>
+<span class="ln" style="--i:5"><span>  finale. Jamais réécrit : une réécriture reconstruit le fichier de</span></span>
+<span class="ln" style="--i:6"><span>  mémoire et introduit des dérives silencieuses (CSS réordonné,</span></span>
+<span class="ln" style="--i:7"><span>  attributs perdus), alors que la fidélité à la capture est toute</span></span>
+<span class="ln" style="--i:8"><span>  la raison d'être de cette commande.</span></span>
+<span class="ln" style="--i:9"><span class="h">## Le versionnage</span></span>
+<span class="ln" style="--i:10"><span>  Un proto commence toujours à v1. Si v1 existe déjà, le skill</span></span>
+<span class="ln" style="--i:11"><span>  s'arrête et renvoie vers /proto-iteration. Les versions</span></span>
+<span class="ln" style="--i:12"><span>  précédentes ne sont jamais écrasées.</span></span></pre>
       </div>
     </div>
 

@@ -533,7 +533,7 @@
     transition-delay:calc(.15s + var(--i,0) * 20ms);
   }
 
-  /* ---------- steps ---------- */
+  /* ---------- étapes ---------- */
   .stepnum{
     font-family:"JetBrains Mono",ui-monospace,monospace;
     font-size:11px;letter-spacing:.18em;text-transform:uppercase;
@@ -543,7 +543,7 @@
   .stepnum + h3{margin-top:6px}
 
 
-  /* ---------- edit mode ---------- */
+  /* ---------- mode édition ---------- */
   #editbar{
     position:fixed;left:50%;transform:translateX(-50%);
     bottom:calc(18px + env(safe-area-inset-bottom, 0px));
@@ -585,7 +585,7 @@
   }
 
 
-  /* ---------- A · the cycle ---------- */
+  /* ---------- A · le cycle ---------- */
   .cycle{
     margin-top:42px;
     display:grid;grid-template-columns:repeat(5,1fr);gap:20px;
@@ -624,7 +624,7 @@
   body.js .rv.in .cy:nth-child(4){transition-delay:.64s}
   body.js .rv.in .cy:nth-child(5){transition-delay:.77s}
 
-  /* ---------- B · input / Claude / output ---------- */
+  /* ---------- B · entrée / Claude / sortie ---------- */
   .flow{
     margin-top:30px;
     display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr;
@@ -666,7 +666,7 @@
   }
 
 
-  /* ---------- E · the step 03 circuit ---------- */
+  /* ---------- E · le pipeline de l'étape 03 ---------- */
   .pipe{display:flex;align-items:stretch;margin-top:34px}
   .pipe .node{
     flex:0 0 auto;align-self:center;white-space:nowrap;
@@ -744,7 +744,7 @@
 
   <header class="masthead">
     <div class="col">
-      <div class="kicker load" style="--d:0">Alan · Product Manager application</div>
+      <div class="kicker load" style="--d:0">Alan · Candidature Product Manager</div>
       <h1 class="question load" style="--d:1">
         In the last 3 months, what’s the most impressive way you used AI to build a product?
         <span class="sub">Please describe context, your approach (incl. tools / prompts / workflow if relevant), what you personally did vs delegated, the impact, and what you’d do differently.</span>
@@ -758,7 +758,7 @@
 
 <div class="thesis">
   <div class="wrap"><div class="col">
-    <p class="rv">I didn’t use AI to write specs faster.<br><span class="dim">I built a product for my product team, and I shipped it like a product.</span></p>
+    <p class="rv">Je n’ai pas utilisé l’IA pour écrire des specs plus vite.<br><span class="dim">J’ai construit un produit pour mon équipe produit, et je l’ai livré comme un produit.</span></p>
   </div></div>
 </div>
 
@@ -766,91 +766,91 @@
 
   <section class="part" id="context">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">00</span><span>Context</span></div>
-      <h2 class="rv" style="--d:1">I am the only PM, and I hold the whole chain</h2>
+      <div class="eyebrow rv"><span class="num">00</span><span>Contexte</span></div>
+      <h2 class="rv" style="--d:1">Je suis la seule PM, et je tiens toute la chaîne</h2>
 
-      <p class="rv" style="--d:2"><strong>I am the PM at Wiremind for PAXONE, an all-in-one B2B inventory and reservation product</strong>&nbsp;for rail and bus operators.</p>
+      <p class="rv" style="--d:2"><strong>Je suis PM chez Wiremind pour le produit PAXONE, un produit B2B d’inventaire et de réservation tout-en-un</strong>&nbsp;pour les opérateurs ferroviaires et routiers.</p>
 
-      <p class="rv" style="--d:3">I am the only PM in a team of 15 people, including 11 developers, one PO, one QA and one Product Expert. A Product Expert is in daily contact with our clients&nbsp;: implementation, support, training, need gathering.</p>
-      <p class="lab rv" style="--d:4">How I work with him</p>
-      <p class="rv" style="--d:4">I go hunting for the needs, and I lean on that link with the Product Expert to get close to the users. We run the interviews together&nbsp;: he brings the context of the account, I bring what the product can do. <mark class="hl">Whatever comes out of it as a product decision comes back to me.</mark></p>
+      <p class="rv" style="--d:3">Je suis la seule PM dans une équipe de 15 personnes dont 11 développeurs, une PO, un QA et un Product Expert. Un Product Expert est au contact quotidien de nos clients&nbsp;: implémentation, support, formation, récolte de besoins.</p>
+      <p class="lab rv" style="--d:4">Comment je travaille avec lui</p>
+      <p class="rv" style="--d:4">Je vais chercher les besoins et je m’appuie sur ce lien avec le Product Expert pour aller au contact des utilisateurs. Nous menons les interviews ensemble&nbsp;: il apporte le contexte du compte, j’apporte ce que le produit peut faire. <mark class="hl">Ce qui en ressort comme décision produit me revient.</mark></p>
 
-      <p class="lab rv" style="--d:5">Then the whole chain</p>
-      <p class="rv" style="--d:5">Framing the need into a solution, designing and prototyping the interface, writing the spec and breaking it into user stories, prioritisation, roadmap and release documentation. From the first client question to the release note, I am on the whole chain.</p>
+      <p class="lab rv" style="--d:5">Puis toute la chaîne</p>
+      <p class="rv" style="--d:5">Framing du besoin en solution, design et prototype de l’interface, rédaction de la spec et découpage en user stories, priorisation, roadmap et documentation de la release. De la première question client à la release note, je suis sur toute la chaîne.</p>
     </div>
   </section>
 
   <section class="part index" id="map">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">··</span><span>The plan</span></div>
-      <h2 class="rv" style="--d:1">Where AI comes in across my product cycle</h2>
+      <div class="eyebrow rv"><span class="num">··</span><span>Le plan</span></div>
+      <h2 class="rv" style="--d:1">Où l’IA intervient dans mon cycle produit</h2>
     </div>
 
     <div class="wide rv">
       <div class="cycle">
-        <a class="cy" href="#need"><span class="n">01</span><span class="t">Understand the need</span><span class="d">Query the tenders and the interviews</span></a>
-        <a class="cy hot" href="#framing"><span class="n">02</span><span class="t">Frame the solution</span><span class="d">Know what the product really does, and get challenged</span></a>
-        <a class="cy hot" href="#building"><span class="n">03</span><span class="t">Build the solution</span><span class="d">Prototype on top of the real product, and version it</span></a>
-        <a class="cy" href="#spec"><span class="n">04</span><span class="t">Write the spec</span><span class="d">Write detailed user stories from the prototype</span></a>
-        <a class="cy" href="#doc"><span class="n">05</span><span class="t">Document</span><span class="d">Reuse what is already written, and translate it</span></a>
+        <a class="cy" href="#need"><span class="n">01</span><span class="t">Comprendre le besoin</span><span class="d">Interroger les appels d’offres et les interviews</span></a>
+        <a class="cy hot" href="#framing"><span class="n">02</span><span class="t">Framing de la solution</span><span class="d">Savoir ce que le produit fait vraiment, et se faire challenger</span></a>
+        <a class="cy hot" href="#building"><span class="n">03</span><span class="t">Construire la solution</span><span class="d">Prototyper sur la base du produit réel, et versionner</span></a>
+        <a class="cy" href="#spec"><span class="n">04</span><span class="t">Rédiger la spec</span><span class="d">Écrire les user stories détaillées depuis le prototype</span></a>
+        <a class="cy" href="#doc"><span class="n">05</span><span class="t">Documenter</span><span class="d">Réutiliser ce qui est déjà écrit, et traduire</span></a>
       </div>
-      <p class="idxnote rv" style="max-width:700px;margin-inline:auto">Steps 02 and 03 take up most of this answer.</p>
+      <p class="idxnote rv" style="max-width:700px;margin-inline:auto">Les étapes 02 et 03 occupent l’essentiel de cette réponse.</p>
     </div>
   </section>
 
   <section class="part" id="need">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">01</span><span>Understand the need</span></div>
-      <h2 class="rv" style="--d:1">I stopped reading tenders. I query them.</h2>
+      <div class="eyebrow rv"><span class="num">01</span><span>Comprendre le besoin</span></div>
+      <h2 class="rv" style="--d:1">J’ai arrêté de lire les appels d’offres. Je les interroge.</h2>
 
       <div class="flow rv">
-        <div class="cell"><span class="k">Input</span><p>Tenders running to several hundred pages, and hour-long user interviews.</p></div>
+        <div class="cell"><span class="k">Entrée</span><p>Des appels d’offres de plusieurs centaines de pages, et des interviews utilisateurs d’une heure.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell ai"><span class="k">Claude</span><p>Queries the content, summarises the conversations.</p></div>
+        <div class="cell ai"><span class="k">Claude</span><p>Interroge le contenu, synthétise les conversations.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell"><span class="k">Output</span><p>A formulated need</p></div>
+        <div class="cell"><span class="k">Sortie</span><p>Un besoin formulé</p></div>
       </div>
 
-      <p class="lab rv" style="--d:2">Context</p>
-      <p class="rv" style="--d:2">Client needs reach us in two unusable forms&nbsp;: tenders that run to hundreds of pages of requirements, and the user interviews the Product Expert and I run together, where the real need is buried in an hour of conversation. Both take days to process, and both end up skimmed for lack of time.</p>
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">Les besoins clients nous arrivent sous deux formes inexploitables&nbsp;: des appels d’offres qui font des centaines de pages d’exigences, et les interviews utilisateurs que le Product Expert et moi menons ensemble, où le vrai besoin est noyé dans une heure de conversation. Les deux demandent des jours à traiter, et les deux finissent survolés faute de temps.</p>
 
-      <p class="lab rv" style="--d:3">Approach</p>
-      <p class="rv" style="--d:3">I query the body of tenders directly instead of reading it linearly, and I have our interview conversations summarised to extract the need behind the request, all of it with Gemini. Out of that I get a formulated need, with its grey areas, that I can challenge and hold up against the product.</p>
+      <p class="lab rv" style="--d:3">Approche</p>
+      <p class="rv" style="--d:3">J’interroge directement le corpus d’appels d’offres au lieu de le lire linéairement, et je fais synthétiser nos conversations d’interview pour en extraire le besoin derrière la demande, le tout avec Gemini. J’en tire un besoin formulé, avec ses zones d’ombre, que je peux challenger et confronter au produit.</p>
 
       <p class="lab rv" style="--d:4">Impact</p>
-      <p class="rv" style="--d:4">We arrive at framing already knowing what the clients asked for, how often, and in what words. <strong>The work moves from extraction to interpretation.</strong></p>
+      <p class="rv" style="--d:4">Nous arrivons au framing en sachant déjà ce que les clients ont demandé, à quelle fréquence, et avec quels mots. <strong>Le travail passe de l’extraction à l’interprétation.</strong></p>
     </div>
   </section>
 
   <section class="part" id="framing">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">02</span><span>Frame the solution</span></div>
-      <h2 class="rv" style="--d:1">The edge cases that escape me are the ones I don’t know exist.</h2>
+      <div class="eyebrow rv"><span class="num">02</span><span>Framing de la solution</span></div>
+      <h2 class="rv" style="--d:1">Les edge cases qui m’échappent sont ceux dont j’ignore l’existence.</h2>
 
       <div class="flow rv">
-        <div class="cell"><span class="k">Input</span><p>A framed need, and an existing system I know only partly.</p></div>
+        <div class="cell"><span class="k">Entrée</span><p>Un besoin cadré, et un système existant que je connais mal.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell ai"><span class="k">Claude</span><p>Answers on the codebase, the database and the logs. Then questions me in rounds.</p></div>
+        <div class="cell ai"><span class="k">Claude</span><p>Répond sur la codebase, la base de données et les logs. Puis m’interroge par rounds.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell"><span class="k">Output</span><p>A settled solution, edge cases named.</p></div>
+        <div class="cell"><span class="k">Sortie</span><p>Une solution figée, edge cases nommés.</p></div>
       </div>
 
-      <p class="lab rv" style="--d:2">Context</p>
-      <p class="rv" style="--d:2">Framing a feature on a mature system means predicting how it will collide with everything that already exists. I had few ways of knowing what the system actually did today without pulling in a developer experienced on the subject.</p>
-      <p class="rv" style="--d:4">That affects product quality and our time&nbsp;: <strong>a forgotten edge case resurfaces, at best, in development</strong>, at the point where adding work is not always possible.</p>
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">Cadrer une feature sur un système mature, c’est prédire comment elle va entrer en collision avec tout ce qui existe déjà. J’avais peu de moyens de savoir ce que le système faisait réellement aujourd'hui sans mobiliser un développeur expérimenté sur le sujet.</p>
+      <p class="rv" style="--d:4">Cela impacte la qualité du produit et notre temps&nbsp;: <strong>un edge case oublié ressort, au mieux, en développement</strong>, au moment où ajouter du travail n’est pas toujours possible.</p>
 
-      <h3 class="rv">Claude is my sparring partner, and it has read the codebase</h3>
+      <h3 class="rv">Claude est mon sparring partner qui lit la codebase</h3>
 
-      <p class="lab rv" style="--d:1">Approach</p>
-      <p class="rv" style="--d:1">I clone the repository locally and I use <strong>Claude Code</strong>, the AI assistant I work with, to query the codebase directly. For the database and the logs, I go through the MCP server our CTO built&nbsp;: <strong>I didn’t build it, but I use it constantly</strong>. Both answer on what the product does <mark class="hl"><strong>today</strong></mark>, not on what the documentation claims, and I no longer need to guess or to pull in a developer to find out.</p>
+      <p class="lab rv" style="--d:1">Approche</p>
+      <p class="rv" style="--d:1">Je clone le repository en local et j’utilise <strong>Claude Code</strong>, l’assistant IA avec lequel je travaille, pour interroger directement la codebase. Pour la base de données et les logs, je passe par le serveur MCP que notre CTO a construit&nbsp;: <strong>ce n’est pas moi qui l’ai construit, mais je m’en sers en permanence</strong>. L’un comme l’autre répondent sur ce que le produit fait <mark class="hl"><strong>aujourd’hui</strong></mark>, pas sur ce que la documentation prétend, et je n’ai plus besoin de deviner ni de mobiliser un développeur pour le savoir.</p>
 
-      <p class="rv" style="--d:2">Then, when it comes to working out the solution, I use a <strong>skill</strong> I wrote to challenge me&nbsp;: it questions me rather than the other way round, asks in rounds, names the edge cases I haven’t mentioned, and challenges the scope.</p>
+      <p class="rv" style="--d:2">Puis, au moment d’élaborer la solution, j’utilise un <strong>skill</strong> que j’ai écrit pour me challenger&nbsp;: il m’interroge plutôt que l’inverse, pose ses questions par rounds, nomme les edge cases que je n’ai pas mentionnés, et challenge le scope.</p>
 
-      <p class="lab rv">The skill itself</p>
-      <p class="rv">I wrote it as a document, not as a prompt&nbsp;: a role, an expected behaviour, a sequence, and what it must refuse to do. It is written in French and in our product vocabulary&nbsp;; what matters here is the structure.</p>
+      <p class="lab rv">Le skill lui-même</p>
+      <p class="rv">Je l’ai écrit comme un document, pas comme un prompt&nbsp;: un rôle, un comportement attendu, un déroulé, et ce qu’il doit refuser de faire. Le vocabulaire est celui de notre produit&nbsp;; ce qui compte ici, c’est la structure.</p>
 
       <div class="skill rv">
-        <div class="bar"><span class="dot"></span><span>feature-planner</span><span class="grow"></span><span>excerpt</span></div>
+        <div class="bar"><span class="dot"></span><span>feature-planner</span><span class="grow"></span><span>extrait</span></div>
         <pre><span class="ln" style="--i:0"><span class="f"># feature-planner</span></span>
 <span class="ln" style="--i:1"><span>&nbsp;</span></span>
 <span class="ln" style="--i:2"><span class="d">  Cadrer un besoin produit PAXONE en posant les bonnes questions</span></span>
@@ -887,83 +887,83 @@
       </div>
 
       <p class="lab rv" style="--d:3">Impact</p>
-      <p class="rv" style="--d:3">I come into framing with the real behaviour of the system in front of me, and I come out of it with the edge cases named. Fewer surprises reach development, and I have stopped spending a developer’s attention on questions I can answer on my own.</p>
+      <p class="rv" style="--d:3">J’arrive au framing avec le comportement réel du système sous les yeux, et j’en ressors avec les edge cases nommés. Moins de surprises atteignent le développement, et j’arrête de consommer l’attention d’un développeur pour des questions auxquelles je peux répondre seule.</p>
     </div>
 
   </section>
 
   <section class="part" id="building">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">03</span><span>Build the solution</span></div>
-      <h2 class="rv" style="--d:1">I was the only one producing the interface, and my mockups were slowly going out of date.</h2>
+      <div class="eyebrow rv"><span class="num">03</span><span>Construire la solution</span></div>
+      <h2 class="rv" style="--d:1">J’étais la seule à produire l’interface, et mes maquettes devenaient peu à peu fausses.</h2>
 
       <div class="flow rv">
-        <div class="cell"><span class="k">Input</span><p>A capture of the real screen, exported as HTML.</p></div>
+        <div class="cell"><span class="k">Entrée</span><p>Une capture de l’écran réel, exportée en HTML.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell ai"><span class="k">Claude</span><p>Edits the capture version after version, then publishes it to the hub.</p></div>
+        <div class="cell ai"><span class="k">Claude</span><p>Édite la capture version après version, puis publie dans le hub.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell"><span class="k">Output</span><p>An interactive prototype, with its context and its history.</p></div>
+        <div class="cell"><span class="k">Sortie</span><p>Un prototype interactif, avec son contexte et son historique.</p></div>
       </div>
 
-      <p class="lab rv" style="--d:2">Context</p>
-      <p class="rv" style="--d:2">My team has never had a designer, so I do the design on top of the product work. <strong>I started on Figma</strong>, and I embedded the screens straight into the specs on Notion.</p>
-      <p class="rv" style="--d:3">What I was producing were <strong>screens, not prototypes</strong>. Every iteration was too slow for me to go beyond the main cases, and the component library was never quite up to date.</p>
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">Mon équipe n’a jamais eu de designer, donc je fais le design en plus du travail produit. <strong>J’ai commencé sur Figma</strong>, et j’intégrais les écrans directement dans les specs sur Notion.</p>
+      <p class="rv" style="--d:3">Ce que je produisais, c’étaient des <strong>écrans, pas des prototypes</strong>. Chaque itération était trop lente pour que je descende au-delà des cas principaux et la bibliothèque de composants n’était jamais tout à fait à jour.</p>
       <ul class="rv" style="--d:4">
-        <li>Iterating took long enough that I rarely went past the happy path</li>
-        <li>I was showing an image, not a behaviour&nbsp;: no empty state, no error, no variant</li>
-        <li>So the functional detail stayed unexplored until someone hit it in development</li>
+        <li>Itérer prenait assez de temps pour que je dépasse rarement le happy path</li>
+        <li>Je montrais une image, pas un comportement&nbsp;: pas d’état vide, pas d’erreur, pas de variante</li>
+        <li>Donc le détail fonctionnel restait inexploré jusqu’à ce que quelqu’un le heurte en développement</li>
       </ul>
-      <p class="rv" style="--d:5">That is what really cost us. <mark class="hl v">A screen that only shows the nominal case hides exactly the place where the product is hard.</mark> It gets reviewed, it gets approved, and the questions it never raised come back later, when answering them is expensive.</p>
+      <p class="rv" style="--d:5">C’est ça qui coûtait vraiment. <mark class="hl v">Un écran qui ne montre que le cas nominal cache exactement l’endroit où le produit est difficile.</mark> On le relit, on le valide, et les questions qu’il n’a jamais soulevées reviennent plus tard, quand y répondre coûte cher.</p>
 
     </div>
 
     <div class="col">
-      <p class="lab rv">Approach</p>
-      <p class="rv">I built a <strong>Design Hub</strong>&nbsp;: a shared internal repo where all the prototypes and the product skills made with Claude are stored. It regenerates from the repo on every publish, and it opens with nothing to install.&nbsp;</p>
+      <p class="lab rv">Approche</p>
+      <p class="rv">J’ai construit un <strong>Design Hub</strong>&nbsp;: un repo interne partagé où sont stockés tous les prototypes et les skills produit faits par Claude. Il se régénère depuis le repo à chaque publication, et se consulte sans rien installer.&nbsp;</p>
     </div>
 
     <div class="wide">
       <div class="figpair">
         <figure class="rv">
-          <img src="assets/img/hub-overview.png" alt="The Design Hub home page, showing the number of prototypes, skills, templates, documents and contributors, and the recent activity.">
-          <figcaption>The hub, generated from the repo</figcaption>
+          <img src="assets/img/hub-overview.png" alt="La page d’accueil du Design Hub, avec le nombre de prototypes, de skills, de templates, de documents et de contributeurs, et l’activité récente.">
+          <figcaption>Le hub, généré depuis le repo</figcaption>
         </figure>
         <figure class="rv" style="--d:1">
-          <img src="assets/img/hub-skills.png" alt="The Design Hub skills page, listing the shared skills grouped by Discovery, Design and Delivery.">
-          <figcaption>The skills, shared with the team</figcaption>
+          <img src="assets/img/hub-skills.png" alt="La page des skills du Design Hub, listant les skills partagés groupés par Discovery, Design et Delivery.">
+          <figcaption>Les skills, partagés avec l’équipe</figcaption>
         </figure>
       </div>
     </div>
 
     <div class="col">
-      <p class="rv" style="--d:1">I wrote the first set of skills, drawing on those of other teams at Wiremind. The PO then improved and extended them. We agreed together on a sequence&nbsp;: from framing the need to publishing the prototype.&nbsp;</p>
+      <p class="rv" style="--d:1">J’ai écrit le premier ensemble de skills, en m’inspirant de ceux d’autres équipes de Wiremind. La PO les a ensuite améliorés et complétés. Nous nous sommes accordées sur un enchaînement&nbsp;: du cadrage du besoin à la publication du prototype.&nbsp;</p>
 
       <div class="ba rv">
         <div class="side was">
-          <h5>Before&nbsp;: Figma</h5>
-          <p>Static screens, made by hand.</p>
-          <p>Very slow to produce.</p>
+          <h5>Avant&nbsp;: Figma</h5>
+          <p>Des écrans statiques, faits manuellement.</p>
+          <p>Très longs à produire.</p>
         </div>
         <div class="arrow" aria-hidden="true"><span>→</span></div>
         <div class="side now">
-          <h5>Now&nbsp;: Claude</h5>
-          <p>Interactive prototypes, built on the product’s current components.</p>
-          <p>Far more efficient iterations, so I can design every state and every case. Which means more quality in the specification.</p>
+          <h5>Maintenant&nbsp;: Claude</h5>
+          <p>Des prototypes interactifs, sur la base des composants actuels du produit.</p>
+          <p>Des itérations bien plus efficaces, pour designer chaque état et chaque cas. Donc plus de qualité dans la spécification.</p>
         </div>
       </div>
     </div>
 
 
     <div class="col">
-      <p class="lab rv">The circuit</p>
-      <p class="rv">A prototype always goes through the same four steps, and what travels between them is always the same object.</p>
+      <p class="lab rv">Le circuit</p>
+      <p class="rv">Un prototype passe toujours par les mêmes quatre étapes, et ce qui circule entre elles est toujours le même objet.</p>
       <div class="pipe rv">
-        <div class="node">Real screen</div>
+        <div class="node">Écran réel</div>
         <div class="step"><span class="lbl">capture</span><span class="line"></span></div>
         <div class="node">ZIP</div>
         <div class="step"><span class="lbl">proto-start-capture</span><span class="line"></span></div>
         <div class="node">v1</div>
-        <div class="step"><span class="lbl">iterations</span><span class="line"></span></div>
+        <div class="step"><span class="lbl">itérations</span><span class="line"></span></div>
         <div class="node">v9</div>
         <div class="step"><span class="lbl">ship</span><span class="line"></span></div>
         <div class="node out">Design Hub</div>
@@ -971,37 +971,37 @@
     </div>
 
     <div class="col">
-      <h3 class="rv">The capture</h3>
-      <p class="rv">An internal tool, built by another team at Wiremind, exports any real screen as HTML. My prototype starts from the product as it is, and I only edit the part the feature touches. <mark class="hl">I no longer maintain a design system in parallel.</mark></p>
-      <p class="rv">The DesignCapture extension exports the real screen as HTML, with its fonts, its icons and its images. That is the starting point&nbsp;: I redraw nothing by hand.</p>
+      <h3 class="rv">La capture</h3>
+      <p class="rv">Un outil interne, construit par une autre équipe chez Wiremind, exporte n’importe quel écran réel en HTML. Mon prototype part du produit tel qu’il est, et je n’édite que la partie que la feature touche. <mark class="hl">Je ne maintiens plus un design system en parallèle.</mark></p>
+      <p class="rv">L’extension DesignCapture exporte l’écran réel en HTML, avec ses polices, ses icônes et ses images. C’est le point de départ&nbsp;: je ne redessine rien à la main.</p>
     </div>
 
     <div class="wide">
       <div class="figpair">
         <figure class="rv">
-          <img src="assets/img/capture-extension.png" alt="The internal capture extension, offering to export the current page or an isolated component as HTML.">
-          <figcaption>Capturing a real screen</figcaption>
+          <img src="assets/img/capture-extension.png" alt="L’extension de capture interne, proposant d’exporter la page courante ou un composant isolé en HTML.">
+          <figcaption>Capturer un écran réel</figcaption>
         </figure>
         <figure class="rv" style="--d:1">
-          <img src="assets/img/capture-library.png" alt="The capture tool library, listing the captured product pages you can start from.">
-          <figcaption>The saved captures</figcaption>
+          <img src="assets/img/capture-library.png" alt="La bibliothèque de l’outil de capture, listant les pages produit capturées dont on peut partir.">
+          <figcaption>Les captures SAUVEGARDéES</figcaption>
         </figure>
       </div>
     </div>
 
     <div class="wide">
       <figure class="rv">
-        <img src="assets/img/product-screen.png" alt="A real PAXONE screen open in the capture tool editor, ready to serve as the base for a prototype.">
-        <figcaption>A captured product screen, ready to be edited by Claude</figcaption>
+        <img src="assets/img/product-screen.png" alt="Un écran réel de PAXONE ouvert dans l’éditeur de l’outil de capture, prêt à servir de base à un prototype.">
+        <figcaption>Un écran produit capturé, prêt à être édité PAR CLAUDE</figcaption>
       </figure>
     </div>
 
     <div class="col">
-      <h3 class="rv">The <code>proto-start-capture</code> skill</h3>
-      <p class="rv">The skill edits the HTML file produced by the capture into the <code>v1</code> of the prototype. <strong>I then iterate locally</strong>, version after version, until the prototype is settled.</p>
+      <h3 class="rv">Le skill <code>proto-start-capture</code></h3>
+      <p class="rv">Le skill va modifier le fichier HTML&nbsp;généré par la capture dans la <code>v1</code> du prototype. <strong>J’itère ensuite en local</strong>, version après version, jusqu’à ce que le prototype soit figé.</p>
 
       <div class="skill rv">
-        <div class="bar"><span class="dot"></span><span>proto-start-capture</span><span class="grow"></span><span>excerpt</span></div>
+        <div class="bar"><span class="dot"></span><span>proto-start-capture</span><span class="grow"></span><span>extrait</span></div>
         <pre><span class="ln" style="--i:0"><span class="f"># proto-start-capture</span></span>
 <span class="ln" style="--i:1"><span>&nbsp;</span></span>
 <span class="ln" style="--i:2"><span class="d">  Génère un prototype HTML fidèle à partir d'une capture du vrai</span></span>
@@ -1038,36 +1038,37 @@
     <div class="wide">
       <div class="film rv">
         <figure>
-          <img src="assets/img/proto-v1.png" alt="First version of the prototype: two columns of cards on a grey background, without the surrounding product interface.">
+          <img src="assets/img/proto-v1.png" alt="Première version du prototype : deux colonnes de cartes sur un fond gris, sans l’interface du produit autour.">
           <figcaption><b>v1</b></figcaption>
         </figure>
         <figure>
-          <img src="assets/img/proto-v4.png" alt="Fourth version: the same page inside the real PAXONE interface, on three columns.">
+          <img src="assets/img/proto-v4.png" alt="Quatrième version : la même page à l’intérieur de l’interface réelle de PAXONE, sur trois colonnes.">
           <figcaption><b>v4</b></figcaption>
         </figure>
         <figure>
-          <img src="assets/img/proto-v9.png" alt="Ninth version: sharpened labels, production status indicators, actions reduced to the ones that make sense in each state.">
+          <img src="assets/img/proto-v9.png" alt="Neuvième version : libellés tranchés, indicateurs de statut en production, actions réduites à celles qui ont un sens dans chaque état.">
           <figcaption><b>v9</b></figcaption>
         </figure>
       </div>
     </div>
 
     <div class="col">
-      <h3 class="rv">The <code>ship</code> skill</h3>
-      <p class="rv">When it is ready, <code>ship</code> publishes. It creates the branch, writes the merge request description (context, solution, changes, prototype link) and fills in the context file if it is missing. I then merge the MR on Git.</p>
+      <h3 class="rv">Le skill <code>ship</code></h3>
+      <p class="rv">Quand c’est prêt, <code>ship</code> publie. Il crée la branche, rédige la description de la merge request (contexte, solution, changements, lien du prototype) et complète le fichier de contexte s’il manque. Je merge ensuite la MR sur Git.</p>
+
     </div>
 
     <div class="col">
-      <h3 class="rv">The memory</h3>
+      <h3 class="rv">La mémoire</h3>
 
-      <p class="lab rv" style="--d:1">Context</p>
-      <p class="rv" style="--d:1">What turned this into something my team actually uses is that every prototype carries its own reasoning and its own history.</p>
+      <p class="lab rv" style="--d:1">Contexte</p>
+      <p class="rv" style="--d:1">Ce qui en a fait quelque chose que mon équipe utilise, c’est que chaque prototype porte son propre raisonnement et son propre historique.</p>
 
-      <p class="lab rv" style="--d:2">Approach</p>
+      <p class="lab rv" style="--d:2">Approche</p>
       <ul class="rv" style="--d:2">
-        <li><strong>Its problem, its objective and its decisions</strong>, so that a reviewer knows what they are looking at and what was deliberately left out</li>
-        <li><strong>Every version, never overwritten.</strong>&nbsp;When someone asks three weeks later why we dropped an option, that version is still there</li>
-        <li><strong>A shareable link</strong>, so developers, QA and management can open it with nothing to install</li>
+        <li><strong>Son problème, son objectif et ses décisions</strong>, pour qu’un relecteur sache ce qu’il regarde et ce qui a été délibérément exclu</li>
+        <li><strong>Chaque version, jamais écrasée.</strong>&nbsp;Quand quelqu’un demande trois semaines plus tard pourquoi on a abandonné une piste, cette version est toujours là</li>
+        <li><strong>Un lien partageable</strong>, pour que les développeurs, la QA et le management l’ouvrent sans rien installer</li>
       </ul>
 
     </div>
@@ -1075,119 +1076,119 @@
     <div class="wide">
       <div class="figpair">
         <figure class="rv">
-          <img src="assets/img/hub-proto-summary.png" alt="A prototype in the hub, with its problem statement, its objective and its wording section.">
-          <figcaption>Every prototype carries its reasoning</figcaption>
+          <img src="assets/img/hub-proto-summary.png" alt="Un prototype dans le hub, avec son énoncé de problème, son objectif et sa section wording.">
+          <figcaption>Chaque prototype porte son raisonnement</figcaption>
         </figure>
         <figure class="rv" style="--d:1">
-          <img src="assets/img/hub-proto-versions.png" alt="A prototype open in the hub, with a version bar running from v1 to v9, the ninth selected.">
-          <figcaption>Example of a versioned prototype</figcaption>
+          <img src="assets/img/hub-proto-versions.png" alt="Un prototype ouvert dans le hub, avec une barre de versions allant de v1 à v9, la neuvième sélectionnée.">
+          <figcaption>EXEMPLE DE PROTOTYPE VERSIONNé</figcaption>
         </figure>
       </div>
     </div>
 
     <div class="col">
       <p class="lab rv">Impact</p>
-      <p class="rv">I save time, but above all I go <mark class="hl">much further into the functional detail</mark>&nbsp;: empty states, errors, permissions, awkward variants. The cases that used to stay in my head, or stay unknown, are now on screen, where the team can push back on them.</p>
-      <p class="rv" style="--d:1">Product questions get settled by looking at something rather than by describing it. Developers receive the intent as an artefact, with its reasoning attached, rather than a link and a conversation.</p>
-      <p class="rv" style="--d:2">And I am no longer the only one producing the interface&nbsp;: <strong>the PO picks up the skills, improves them, and ships her own prototypes too.</strong></p>
+      <p class="rv">Je gagne du temps, mais surtout je descends <mark class="hl">bien plus loin dans le détail fonctionnel</mark>&nbsp;: états vides, erreurs, permissions, variantes pénibles. Les cas qui restaient dans ma tête, ou qui restaient inconnus, sont maintenant à l’écran, là où l’équipe peut les contester.</p>
+      <p class="rv" style="--d:1">Les questions produit se tranchent en regardant quelque chose plutôt qu’en le décrivant. Les développeurs reçoivent l’intention sous forme d’artefact, avec son raisonnement attaché, plutôt qu’un lien et une conversation.</p>
+      <p class="rv" style="--d:1">Et je ne suis plus seule à produire l’interface&nbsp;: <strong>la PO reprend les skills, les améliore, et livre aussi ses propres prototypes.</strong></p>
 
     </div>
 
     <div class="wide">
       <figure class="rv">
-        <img src="assets/img/hub-prototypes.png" alt="The Design Hub prototypes page, listing the recent prototypes with their module, their version and their author.">
-        <figcaption>Open to developers, QA and management</figcaption>
+        <img src="assets/img/hub-prototypes.png" alt="La page des prototypes du Design Hub, listant les prototypes récents avec leur module, leur version et leur auteur.">
+        <figcaption>Consultable par les développeurs, la QA et le management</figcaption>
       </figure>
     </div>
 
     <div class="col">
-      <p class="lab rv" style="--d:1">Context</p>
-      <p class="rv" style="--d:1">Interface wording is the most systematically lost object in product work. It lives in mockup annotations, in spec review comments and in chat messages, then it gets retyped by hand, in two languages, by someone who could not find the source of truth.</p>
+      <p class="lab rv" style="--d:1">Contexte</p>
+      <p class="rv" style="--d:1">Le wording d’interface est l'objet le plus systématiquement perdu du travail produit. Il vit dans des annotations de maquette, des commentaires de relecture de spec et des messages de chat, puis il est retapé à la main, en deux langues, par quelqu’un qui n'a pas su trouver la source de vérité.</p>
 
-      <p class="lab rv" style="--d:2">Approach</p>
-      <p class="rv" style="--d:2">I had the prototype generate a bilingual editing table&nbsp;: every piece of wording it contains, French and English side by side, editable in place, with a stable key per row and a JSON export. <mark class="hl"><strong>One object, three uses.</strong></mark> I rewrite the wording, the prototype is updated from that table, and the spec carries the export so that developers implement the final wording in both languages.</p>
+      <p class="lab rv" style="--d:2">Approche</p>
+      <p class="rv" style="--d:2">J’ai fait générer au prototype un tableau d’édition bilingue&nbsp;: chaque morceau de wording&nbsp;qu’il contient, français et anglais côte à côte, éditable sur place, avec une clé stable par ligne et un export JSON. <mark class="hl"><strong>Un objet, trois usages.</strong></mark> Je réécris le wording, le prototype est mis à jour depuis ce tableau, et la spec embarque l’export pour que les développeurs implémentent le wording final dans les deux langues.</p>
 
-      <p class="lab rv" style="--d:3">Its limit</p>
-      <p class="rv" style="--d:3">The keys point to the prototype, not to our production codebase. Developers still transpose the text themselves.&nbsp;</p>
+      <p class="lab rv" style="--d:3">Sa limite</p>
+      <p class="rv" style="--d:3">Les clés pointent vers le prototype, pas vers notre codebase de production. Les développeurs transposent toujours le texte eux-mêmes.&nbsp;</p>
     </div>
 
     <div class="wide">
       <figure class="rv">
-        <img src="assets/img/wording-table.png" alt="A bilingual table listing every piece of wording in a prototype, French and English side by side, each with a stable key, and a JSON export.">
-        <figcaption>120 pieces of wording, two languages, one single source</figcaption>
+        <img src="assets/img/wording-table.png" alt="Un tableau bilingue listant chaque morceau de wording d’un prototype, français et anglais côte à côte, chacun avec une clé stable, et un export JSON.">
+        <figcaption>120 morceaux de wording, deux langues, une seule source</figcaption>
       </figure>
     </div>
   </section>
 
   <section class="part" id="spec">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">04</span><span>Write the spec</span></div>
-      <h2 class="rv" style="--d:1">Writing the user stories in detail was the longest part of spec work</h2>
+      <div class="eyebrow rv"><span class="num">04</span><span>Rédiger la spec</span></div>
+      <h2 class="rv" style="--d:1">Écrire les user stories en détail était le plus long du travail de spec</h2>
 
       <div class="flow rv">
-        <div class="cell"><span class="k">Input</span><p>The settled prototype, and the groundwork done with the tech owner.</p></div>
+        <div class="cell"><span class="k">Entrée</span><p>Le prototype figé, et le défrichage avec le tech owner.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell ai"><span class="k">Claude</span><p>Writes the detailed user stories from the prototype.</p></div>
+        <div class="cell ai"><span class="k">Claude</span><p>Écrit les user stories détaillées à partir du prototype.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell"><span class="k">Output</span><p>A sliced backlog, acceptance criteria written.</p></div>
+        <div class="cell"><span class="k">Sortie</span><p>Un backlog découpé, critères d’acceptation écrits.</p></div>
       </div>
 
-      <p class="lab rv" style="--d:2">Context</p>
-      <p class="rv" style="--d:2">During the groundwork phase, with the tech owner of the spec, we go back and forth to get into the detail together&nbsp;: what the solution really implies, where it touches the existing system, what is still to be decided.</p>
-      <p class="rv" style="--d:3">Agreeing on the solution goes fairly fast. <mark class="hl">Writing the user stories in detail takes much longer.</mark></p>
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">En phase de défrichage, avec le tech owner de la spec, on fait des allers-retours pour entrer dans le détail ensemble&nbsp;: ce que la solution implique vraiment, où elle touche le système existant, ce qui reste à décider.</p>
+      <p class="rv" style="--d:3">S’accorder sur la solution va assez vite. <mark class="hl">Écrire les user stories dans le détail prend beaucoup plus de temps.</mark></p>
 
-      <p class="lab rv" style="--d:4">Approach</p>
-      <p class="rv" style="--d:4">Once the prototype is settled, Claude writes the detailed user stories from it. It goes faster than I do, and it goes further into the detail. Each story then feeds a ticket.</p>
+      <p class="lab rv" style="--d:4">Approche</p>
+      <p class="rv" style="--d:4">Une fois le prototype figé, Claude écrit les user stories détaillées à partir de celui-ci. Il va plus vite que moi, et descend plus loin dans le détail. Chaque story alimente ensuite un ticket.</p>
 
       <p class="lab rv" style="--d:5">Impact</p>
-      <p class="rv" style="--d:5">The user stories are prioritised, the acceptance criteria already written. From there, the tech owner creates the tickets and runs sprint planning with the team.</p>
+      <p class="rv" style="--d:5">Les US sont priorisées, les critères d’acceptation déjà écrits. À partir de là, le tech owner crée les tickets et organise le sprint planning avec l’équipe.</p>
     </div>
   </section>
 
   <section class="part" id="doc">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">05</span><span>Document</span></div>
-      <h2 class="rv" style="--d:1">Documentation no longer starts from a blank page.</h2>
+      <div class="eyebrow rv"><span class="num">05</span><span>Documenter</span></div>
+      <h2 class="rv" style="--d:1">La documentation ne part plus d’une page blanche.</h2>
 
       <div class="flow rv">
-        <div class="cell"><span class="k">Input</span><p>The spec, the user stories and our glossary.</p></div>
+        <div class="cell"><span class="k">Entrée</span><p>La spec, les user stories et notre glossaire.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell ai"><span class="k">Claude</span><p>Makes it readable for the user, then translates it.</p></div>
+        <div class="cell ai"><span class="k">Claude</span><p>Vulgarise pour l’utilisateur, puis traduit.</p></div>
         <div class="ar" aria-hidden="true"><span>→</span></div>
-        <div class="cell"><span class="k">Output</span><p>User documentation and release notes, in French and in English.</p></div>
+        <div class="cell"><span class="k">Sortie</span><p>Doc utilisateur et release notes, en français et en anglais.</p></div>
       </div>
 
-      <p class="lab rv" style="--d:2">Context</p>
-      <p class="rv" style="--d:2">User documentation and release notes have always been delivered on time. They simply cost me <mark class="hl">a lot of time</mark>, because everything has to exist in French and in English.</p>
+      <p class="lab rv" style="--d:2">Contexte</p>
+      <p class="rv" style="--d:2">La documentation utilisateur et les release notes ont toujours été livrées à temps. Elles me coûtent simplement <mark class="hl">beaucoup de temps</mark>, parce que tout doit exister en français et en anglais.</p>
 
-      <p class="lab rv" style="--d:3">Approach</p>
-      <p class="rv" style="--d:3">Everything I wrote in the earlier steps gets used&nbsp;: the framing, the spec, the detailed user stories. Claude picks up that material taking our glossary into account, turns it into user documentation, and translates it. <strong>I review and refine the details.</strong></p>
+      <p class="lab rv" style="--d:3">Approche</p>
+      <p class="rv" style="--d:3">Tout ce que j’ai écrit aux étapes précédentes sert&nbsp;: le cadrage, la spec, les user stories détaillées. Claude reprend cette matière en prenant en compte notre glossaire, la vulgarise pour la documentation utilisateur, et la traduit. <strong>Je relis et affine les détails.</strong></p>
 
       <p class="lab rv" style="--d:4">Impact</p>
-      <p class="rv" style="--d:4">I no longer rewrite from scratch what already exists in the spec and the user stories, and I no longer write twice for the two languages. The time that frees up goes back upstream, where it produces the most value.</p>
+      <p class="rv" style="--d:4">Je ne réécris plus depuis zéro ce qui existe déjà dans la spec et les user stories, et je ne rédige plus deux fois pour les deux langues. Le temps que ça libère retourne aux étapes amont, là où il produit le plus de valeur.</p>
     </div>
   </section>
 
   <section class="part" id="split">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">··</span><span>What I did vs what I delegated</span></div>
-      <h2 class="rv" style="--d:1">I am the only one on my team setting up product process.</h2>
-      <p class="rv" style="--d:2">So most of what precedes, I <mark class="hl">built on my own</mark>. Here is what does not come from me, and what I delegate day to day.</p>
+      <div class="eyebrow rv"><span class="num">··</span><span>Ce que j’ai fait vs ce que j’ai délégué</span></div>
+      <h2 class="rv" style="--d:1">Je suis la seule de mon équipe à mettre en place des process produit.</h2>
+      <p class="rv" style="--d:2">L’essentiel de ce qui précède, je l’ai donc <mark class="hl">construit seule</mark>. Voici ce qui ne vient pas de moi, et ce que je délègue au quotidien.</p>
     </div>
 
     <div class="wide">
       <div class="tri">
         <div class="c rv">
-          <h4>Built by me</h4>
-          <p>The Design Hub and its publishing circuit. The skills for framing, spec writing and slicing into user stories. The bilingual wording table. And every product judgement&nbsp;: the scope, the edge cases that matter, what a prototype has to show.</p>
+          <h4>Construit par moi</h4>
+          <p>Le Design Hub et son circuit de publication. Les skills de cadrage, de rédaction de spec et de découpage en user stories. Le tableau de wording bilingue. Et tout jugement produit&nbsp;: le scope, les edge cases qui comptent, ce qu’un prototype doit montrer.</p>
         </div>
         <div class="c rv" style="--d:1">
-          <h4>Taken from elsewhere</h4>
-          <p>The <strong>MCP</strong> server that queries the codebase, the database and the logs&nbsp;: built by our CTO. The <strong>DesignCapture</strong> extension&nbsp;: built by another team at Wiremind. And the improvements made to the skills&nbsp;: by the team’s PO.</p>
+          <h4>Repris d’ailleurs</h4>
+          <p>Le serveur <strong>MCP</strong> qui interroge la codebase, la base de données et les logs&nbsp;: construit par notre CTO. L’extension <strong>DesignCapture</strong>&nbsp;: construite par une autre équipe de Wiremind. Et les améliorations apportées aux skills&nbsp;: par la PO de l’équipe.</p>
         </div>
         <div class="c accent rv" style="--d:2">
-          <h4>Delegated to Claude</h4>
-          <p>Producing and editing the prototypes. Writing the detailed user stories. Generating the wording table. Writing the documentation, the release notes and the translations. Querying the codebase and the tenders. <strong>I review all of it.</strong></p>
+          <h4>Délégué à Claude</h4>
+          <p>Produire et éditer les prototypes. Écrire les user stories détaillées. Générer le tableau de wording. Rédiger la documentation, les release notes et les traductions. Interroger la codebase et les appels d’offres. <strong>Je relis tout.</strong></p>
         </div>
       </div>
     </div>
@@ -1195,33 +1196,33 @@
 
   <section class="part" id="differently">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">··</span><span>What I’d do differently</span></div>
-      <h2 class="rv" style="--d:1">What I’d do differently</h2>
+      <div class="eyebrow rv"><span class="num">··</span><span>Ce que je ferais différemment</span></div>
+      <h2 class="rv" style="--d:1">Ce que je ferais différemment</h2>
 
-      <p class="rv" style="--d:2">This process is only a few months old. <mark class="hl">I don’t yet have the distance to say I should have gone about it another way.</mark></p>
+      <p class="rv" style="--d:2">Ce process a seulement quelques mois. <mark class="hl">Je n’ai pas encore le recul pour dire que j’aurais dû m’y prendre autrement.</mark></p>
 
-      <p class="lab rv" style="--d:3">What I want to improve</p>
-      <p class="rv" style="--d:3"><strong>The prototype that starts from zero.</strong> When the screen does not exist in the product yet, there is nothing to capture. The prototype has to be built from scratch, and the result is noticeably less faithful.&nbsp;</p>
+      <p class="lab rv" style="--d:3">Ce que je veux améliorer</p>
+      <p class="rv" style="--d:3"><strong>Le prototype qui part de zéro.</strong> Quand l’écran n’existe pas encore dans le produit, il n’y a rien à capturer. Le prototype doit être construit de zéro, et le résultat est nettement moins fidèle.&nbsp;</p>
     </div>
   </section>
 
   <section class="part" id="close">
     <div class="col">
-      <div class="eyebrow rv"><span class="num">··</span><span>To close</span></div>
-      <h2 class="rv" style="--d:1">What I take away</h2>
+      <div class="eyebrow rv"><span class="num">··</span><span>Pour finir</span></div>
+      <h2 class="rv" style="--d:1">Ce que je retiens</h2>
 
-      <p class="rv" style="--d:2">Each step feeds the next one. The framing feeds the prototype, the prototype feeds the user stories, the user stories feed the documentation. That chaining is what produces the gain, more than speeding up any one step.</p>
+      <p class="rv" style="--d:2">Chaque étape alimente la suivante. Le cadrage nourrit le prototype, le prototype nourrit les user stories, les user stories nourrissent la documentation. C’est ce chaînage qui fait le gain, plus que l’accélération d’une étape en particulier.</p>
 
-      <p class="lab rv" style="--d:3">What has changed</p>
-      <p class="rv" style="--d:3">With AI, <mark class="hl">the team’s bottleneck has moved from development to the groundwork</mark>&nbsp;: understanding the need, understanding the existing system, deciding what to build. I spend fewer hours producing designs, specs and documentation, and more exploring the solution.</p>
-      <p class="rv" style="--d:4">That time goes into the quality of what we ship. I can cover a wider scope, show more cases, and have the team decide in front of a prototype rather than in front of an intention.</p>
+      <p class="lab rv" style="--d:3">Ce qui a changé</p>
+      <p class="rv" style="--d:3">Avec l’IA, <mark class="hl">le goulot d’étranglement de l’équipe est passé du développement au défrichage</mark>&nbsp;: comprendre le besoin, comprendre l’existant, décider quoi construire. Je passe moins d’heures à produire des designs, des specs et de la documentation, et plus à explorer la solution.</p>
+      <p class="rv" style="--d:4">Ce temps va à la qualité de ce qu’on livre. Je peux couvrir un périmètre plus large, montrer plus de cas, et faire trancher l’équipe devant un prototype plutôt que devant une intention.</p>
 
     </div>
   </section>
 
   <footer>
     <span>Léna Santamaria · Paxone, Wiremind</span>
-    <span>Written answer · Alan</span>
+    <span>Réponse écrite · Alan</span>
   </footer>
 
 </div>
@@ -1307,9 +1308,9 @@
   function build(api){
     var bar = document.createElement('div');
     bar.id = 'editbar';
-    bar.innerHTML = '<button id="ed-toggle">Edit</button>'
-                  + '<button id="ed-save" class="go" hidden>Save</button>'
-                  + '<button id="ed-cancel" hidden>Cancel</button>'
+    bar.innerHTML = '<button id="ed-toggle">Éditer</button>'
+                  + '<button id="ed-save" class="go" hidden>Enregistrer</button>'
+                  + '<button id="ed-cancel" hidden>Annuler</button>'
                   + '<span class="msg" id="ed-msg"></span>';
     document.body.appendChild(bar);
 
@@ -1333,7 +1334,7 @@
     toggle.addEventListener('click', function(){
       snapshot = targets().map(function(el){ return el.innerHTML; });
       setEditing(true);
-      say('click into the text');
+      say('cliquez dans le texte');
     });
 
     cancel.addEventListener('click', function(){
@@ -1344,7 +1345,7 @@
     save.addEventListener('click', async function(){
       setEditing(false);
       save.disabled = cancel.disabled = true;
-      say('saving…');
+      say('enregistrement…');
       try{
         var root = document.documentElement.cloneNode(true);
         var b = root.querySelector('#editbar'); if (b) b.remove();
@@ -1355,15 +1356,15 @@
         var bd = root.querySelector('body'); if (bd) bd.classList.remove('js','editing');
         var pb = root.querySelector('#bar'); if (pb) pb.removeAttribute('style');
         await api.publish('<!DOCTYPE html>\n' + root.outerHTML);
-        say('saved');
+        say('enregistré');
       }catch(e){
         var code = (e && e.code) || '';
-        say(code === 'conflict' ? 'another version was published, reload'
-          : (code === 'not_writer' || code === 'not_granted') ? 'read only'
-          : 'save failed');
+        say(code === 'conflict' ? 'une autre version a été publiée, rechargez'
+          : (code === 'not_writer' || code === 'not_granted') ? 'lecture seule'
+          : 'échec de l’enregistrement');
       }
       save.disabled = cancel.disabled = false;
-      setTimeout(function(){ if (msg.textContent === 'saved') say(''); }, 3000);
+      setTimeout(function(){ if (msg.textContent === 'enregistré') say(''); }, 3000);
     });
   }
 

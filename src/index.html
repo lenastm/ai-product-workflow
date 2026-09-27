@@ -908,13 +908,6 @@
       <p class="lab rv" style="--d:2">Context</p>
       <p class="rv" style="--d:2">My team has never had a designer, so I do the design on top of the product work. <strong>I started on Figma</strong>, and I embedded the screens straight into the specs on Notion.</p>
       <p class="rv" style="--d:3">What I was producing were <strong>screens, not prototypes</strong>. Every iteration was too slow for me to go beyond the main cases, and the component library was never quite up to date.</p>
-      <ul class="rv" style="--d:4">
-        <li>Iterating took long enough that I rarely went past the happy path</li>
-        <li>I was showing an image, not a behaviour&nbsp;: no empty state, no error, no variant</li>
-        <li>So the functional detail stayed unexplored until someone hit it in development</li>
-      </ul>
-      <p class="rv" style="--d:5">That is what really cost us. <mark class="hl v">A screen that only shows the nominal case hides exactly the place where the product is hard.</mark> It gets reviewed, it gets approved, and the questions it never raised come back later, when answering them is expensive.</p>
-
     </div>
 
     <div class="col">
@@ -972,8 +965,7 @@
 
     <div class="col">
       <h3 class="rv">The capture</h3>
-      <p class="rv">An internal tool, built by another team at Wiremind, exports any real screen as HTML. My prototype starts from the product as it is, and I only edit the part the feature touches. <mark class="hl">I no longer maintain a design system in parallel.</mark></p>
-      <p class="rv">The DesignCapture extension exports the real screen as HTML, with its fonts, its icons and its images. That is the starting point&nbsp;: I redraw nothing by hand.</p>
+      <p class="rv">The <strong>DesignCapture</strong> extension, built by another team at Wiremind, exports any real screen as HTML, with its fonts, its icons and its images. My prototype starts from the product as it is, and I only edit the part the feature touches. <mark class="hl">I no longer maintain a design system in parallel.</mark></p>
     </div>
 
     <div class="wide">
@@ -1007,31 +999,17 @@
 <span class="ln" style="--i:2"><span class="d">  Génère un prototype HTML fidèle à partir d'une capture du vrai</span></span>
 <span class="ln" style="--i:3"><span class="d">  front, au lieu de reconstruire le HTML depuis zéro.</span></span>
 <span class="ln" style="--i:4"><span>&nbsp;</span></span>
-<span class="ln" style="--i:5"><span class="h">## Ce que l'utilisateur fournit</span></span>
-<span class="ln" style="--i:6"><span>  1. Naviguer soi-même jusqu'à la page réelle</span></span>
-<span class="ln" style="--i:7"><span>  2. Extension DesignCapture, export au format ZIP</span></span>
-<span class="ln" style="--i:8"><span>  3. Donner le chemin local du fichier téléchargé</span></span>
-<span class="ln" style="--i:9"><span>&nbsp;</span></span>
-<span class="ln" style="--i:10"><span>  Claude ne navigue jamais lui-même : tout part du fichier fourni.</span></span>
-<span class="ln" style="--i:11"><span>  Sans chemin, le skill s'arrête. Il ne devine jamais un chemin ni</span></span>
-<span class="ln" style="--i:12"><span>  ne suppose qu'un fichier existe.</span></span>
-<span class="ln" style="--i:13"><span>&nbsp;</span></span>
-<span class="ln" style="--i:14"><span class="h">## Le traitement de la capture</span></span>
-<span class="ln" style="--i:15"><span>  Le contenu capturé est redirigé tel quel vers sa destination</span></span>
-<span class="ln" style="--i:16"><span>  finale. Jamais réécrit : une réécriture reconstruit le fichier de</span></span>
-<span class="ln" style="--i:17"><span>  mémoire et introduit des dérives silencieuses (CSS réordonné,</span></span>
-<span class="ln" style="--i:18"><span>  attributs perdus), alors que la fidélité à la capture est toute</span></span>
-<span class="ln" style="--i:19"><span>  la raison d'être de cette commande.</span></span>
-<span class="ln" style="--i:20"><span>&nbsp;</span></span>
-<span class="ln" style="--i:21"><span class="h">## Le versionnage</span></span>
-<span class="ln" style="--i:22"><span>  Un proto commence toujours à v1. Si v1 existe déjà, le skill</span></span>
-<span class="ln" style="--i:23"><span>  s'arrête et renvoie vers /proto-iteration. Les versions</span></span>
-<span class="ln" style="--i:24"><span>  précédentes ne sont jamais écrasées.</span></span>
-<span class="ln" style="--i:25"><span>&nbsp;</span></span>
-<span class="ln" style="--i:26"><span class="h">## Ce qui est modifié</span></span>
-<span class="ln" style="--i:27"><span>  Uniquement les sections concernées par la feature,</span></span>
-<span class="ln" style="--i:28"><span>  chirurgicalement. Tout le reste de la page reste identique :</span></span>
-<span class="ln" style="--i:29"><span>  c'est l'intérêt de partir d'une capture.</span></span></pre>
+<span class="ln" style="--i:5"><span class="h">## Le traitement de la capture</span></span>
+<span class="ln" style="--i:6"><span>  Le contenu capturé est redirigé tel quel vers sa destination</span></span>
+<span class="ln" style="--i:7"><span>  finale. Jamais réécrit : une réécriture reconstruit le fichier de</span></span>
+<span class="ln" style="--i:8"><span>  mémoire et introduit des dérives silencieuses (CSS réordonné,</span></span>
+<span class="ln" style="--i:9"><span>  attributs perdus), alors que la fidélité à la capture est toute</span></span>
+<span class="ln" style="--i:10"><span>  la raison d'être de cette commande.</span></span>
+<span class="ln" style="--i:11"><span>&nbsp;</span></span>
+<span class="ln" style="--i:12"><span class="h">## Le versionnage</span></span>
+<span class="ln" style="--i:13"><span>  Un proto commence toujours à v1. Si v1 existe déjà, le skill</span></span>
+<span class="ln" style="--i:14"><span>  s'arrête et renvoie vers /proto-iteration. Les versions</span></span>
+<span class="ln" style="--i:15"><span>  précédentes ne sont jamais écrasées.</span></span></pre>
       </div>
     </div>
 

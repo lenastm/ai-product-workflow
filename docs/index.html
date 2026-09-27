@@ -310,6 +310,8 @@
     grid-template-columns:repeat(3,1fr);
     gap:30px;
   }
+  /* quatre colonnes de 225px seraient illisibles : on passe en 2x2 */
+  .tri.four{grid-template-columns:repeat(2,1fr);gap:30px 40px}
   .tri .c{border-top:2px solid var(--line);padding-top:16px}
   .tri .c.accent{border-top-color:var(--violet)}
   .tri h4{
@@ -542,6 +544,10 @@
     gap:36px;
     align-items:start;
   }
+  /* le titre au-dessus du bloc : il s'aligne sur les deux colonnes, et l'espace
+     qui le separe de l'approche est resserre */
+  .wide > h3{margin-top:30px}
+  .wide > h3 + .aside{margin-top:16px}
   .aside .asidetext p{max-width:none}
   .aside .asidetext > :first-child{margin-top:0}
   .aside .skill{margin-top:5px}
@@ -749,7 +755,7 @@
     .idxrow{grid-template-columns:36px 1fr;gap:6px 16px}
     .idxrow .d{grid-column:2}
     .figpair{grid-template-columns:1fr;gap:16px}
-    .tri{grid-template-columns:1fr;gap:26px}
+    .tri,.tri.four{grid-template-columns:1fr;gap:26px}
     h3{margin-top:36px}
     .note{padding:18px}
     .todo{padding:20px}
@@ -879,11 +885,10 @@
       <p class="rv" style="--d:2">Framing a feature on a mature system means predicting how it will collide with everything that already exists. I had few ways of knowing what the system actually did today without pulling in a developer experienced on the subject.</p>
       <p class="rv" style="--d:4">That affects product quality and our time&nbsp;: <strong>a forgotten edge case resurfaces, at best, in development</strong>, at the point where adding work is not always possible.</p>
 
-      <h3 class="rv">Claude is my sparring partner, and it has read the codebase</h3>
-
     </div>
 
     <div class="wide">
+      <h3 class="rv">Claude is my sparring partner, and it has read the codebase</h3>
       <div class="aside rv">
         <div class="asidetext">
           <p class="lab">Approach</p>
@@ -1179,7 +1184,7 @@
     </div>
 
     <div class="wide">
-      <div class="tri">
+      <div class="tri four">
         <div class="c rv">
           <h4>Built by me</h4>
           <p>The Design Hub and its publishing circuit. The skills for framing, spec writing and slicing into user stories. The bilingual wording table. And every product judgement&nbsp;: the scope, the edge cases that matter, what a prototype has to show.</p>
@@ -1188,7 +1193,11 @@
           <h4>Taken from elsewhere</h4>
           <p>The <strong>MCP</strong> server that queries the codebase, the database and the logs&nbsp;: built by our CTO. The <strong>DesignCapture</strong> extension&nbsp;: built by another team at Wiremind. And the improvements made to the skills&nbsp;: by the team’s PO.</p>
         </div>
-        <div class="c accent rv" style="--d:2">
+        <div class="c rv" style="--d:2">
+          <h4>Delegated to the team</h4>
+          <p>The <strong>PO</strong> picks up the skills, improves them, and ships her own prototypes. The <strong>QA</strong>, whom I manage, builds the test plans from the detailed specs&nbsp;: <strong>all product quality rests on them.</strong></p>
+        </div>
+        <div class="c accent rv" style="--d:3">
           <h4>Delegated to Claude</h4>
           <p>Producing and editing the prototypes. Writing the detailed user stories. Generating the wording table. Writing the documentation, the release notes and the translations. Querying the codebase and the tenders. <strong>I review all of it.</strong></p>
         </div>
@@ -1202,6 +1211,7 @@
       <h2 class="rv" style="--d:1">What I’d do differently</h2>
 
       <p class="rv" style="--d:2">This process is only a few months old. <mark class="hl">I don’t yet have the distance to say I should have gone about it another way.</mark></p>
+      <p class="rv" style="--d:3"><strong>The only thing I regret is not having started all this sooner.</strong></p>
 
       <p class="lab rv" style="--d:3">What I want to improve</p>
       <p class="rv" style="--d:3"><strong>The prototype that starts from zero.</strong> When the screen does not exist in the product yet, there is nothing to capture. The prototype has to be built from scratch, and the result is noticeably less faithful.&nbsp;</p>
@@ -1294,7 +1304,7 @@
 (function(){
   var SEL = [
     '.thesis p','.question','.byline .who','.kicker',
-    '.col h2','.col h3','.col p','.col li','.lab','.idxnote','.stepnum',
+    '.col h2','.col h3','.col p','.col li','.wide h3','.asidetext p','.lab','.idxnote','.stepnum',
     '.idxrow .t','.idxrow .d',
     'figcaption','.stat .cap','.strip .l',
     '.ba h5','.ba p','.tri h4','.tri p','.note p','.todo p','.todo li',
